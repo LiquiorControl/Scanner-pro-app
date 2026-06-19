@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Scanner Pro</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563EB">
+    <link rel="icon" href="icon-192.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Scanner Pro">
+
+        <script crossorigin src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js" type="text/javascript"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>*,:after,:before{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgba(59,130,246,.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/*! tailwindcss v3.4.19 | MIT License | https://tailwindcss.com*/*,:after,:before{box-sizing:border-box;border:0 solid #e5e7eb}:after,:before{--tw-content:""}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;-o-tab-size:4;tab-size:4;font-family:ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0}fieldset,legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::-moz-placeholder,textarea::-moz-placeholder{opacity:1;color:#9ca3af}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.pointer-events-none{pointer-events:none}.static{position:static}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.sticky{position:sticky}.inset-0{inset:0}.bottom-0{bottom:0}.bottom-8{bottom:2rem}.left-1\/2{left:50%}.left-3{left:.75rem}.right-16{right:4rem}.right-4{right:1rem}.top-0{top:0}.top-2{top:.5rem}.top-24{top:6rem}.top-3\.5{top:.875rem}.top-5{top:1.25rem}.z-10{z-index:10}.z-30{z-index:30}.z-40{z-index:40}.z-50{z-index:50}.z-\[60\]{z-index:60}.z-\[80\]{z-index:80}.z-\[90\]{z-index:90}.col-start-2{grid-column-start:2}.m-4{margin:1rem}.mx-auto{margin-left:auto;margin-right:auto}.my-1{margin-top:.25rem}.mb-1,.my-1{margin-bottom:.25rem}.mb-1\.5{margin-bottom:.375rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-1{margin-top:.25rem}.mt-1\.5{margin-top:.375rem}.mt-2{margin-top:.5rem}.mt-20{margin-top:5rem}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-10{height:2.5rem}.h-11{height:2.75rem}.h-14{height:3.5rem}.h-16{height:4rem}.h-2{height:.5rem}.h-2\.5{height:.625rem}.h-3{height:.75rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-7{height:1.75rem}.h-8{height:2rem}.h-\[95vh\]{height:95vh}.h-px{height:1px}.h-screen{height:100vh}.min-h-screen{min-height:100vh}.w-10{width:2.5rem}.w-14{width:3.5rem}.w-16{width:4rem}.w-2{width:.5rem}.w-2\.5{width:.625rem}.w-3{width:.75rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-64{width:16rem}.w-7{width:1.75rem}.w-8{width:2rem}.w-full{width:100%}.min-w-\[80px\]{min-width:80px}.max-w-lg{max-width:32rem}.max-w-md{max-width:28rem}.max-w-sm{max-width:24rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%}.-translate-x-1\/2,.rotate-180{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.rotate-180{--tw-rotate:180deg}.scale-110{--tw-scale-x:1.1;--tw-scale-y:1.1}.scale-110,.transform{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(.4,0,.6,1) infinite}.cursor-pointer{cursor:pointer}.select-none{-webkit-user-select:none;-moz-user-select:none;user-select:none}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:.25rem}.gap-1\.5{gap:.375rem}.gap-2{gap:.5rem}.gap-3{gap:.75rem}.gap-4{gap:1rem}.space-y-1\.5>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.375rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.375rem*var(--tw-space-y-reverse))}.space-y-3>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(.75rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(.75rem*var(--tw-space-y-reverse))}.space-y-4>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem*var(--tw-space-y-reverse))}.space-y-6>:not([hidden])~:not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem*(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem*var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:.5rem}.rounded-md{border-radius:.375rem}.rounded-xl{border-radius:.75rem}.rounded-b-2xl{border-bottom-right-radius:1rem;border-bottom-left-radius:1rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-\[var\(--border-soft\)\]{border-color:var(--border-soft)}.border-\[var\(--c-beers-1\)\]{border-color:var(--c-beers-1)}.border-amber-300{--tw-border-opacity:1;border-color:rgb(252 211 77/var(--tw-border-opacity,1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255/var(--tw-border-opacity,1))}.bg-\[\#F1F4F9\]{--tw-bg-opacity:1;background-color:rgb(241 244 249/var(--tw-bg-opacity,1))}.bg-\[var\(--bg-body\)\]{background-color:var(--bg-body)}.bg-\[var\(--border-soft\)\]{background-color:var(--border-soft)}.bg-\[var\(--c-beers-1\)\]{background-color:var(--c-beers-1)}.bg-\[var\(--c-premium-1\)\]{background-color:var(--c-premium-1)}.bg-\[var\(--text-main\)\]{background-color:var(--text-main)}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235/var(--tw-bg-opacity,1))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0/var(--tw-bg-opacity,1))}.bg-black\/80{background-color:rgba(0,0,0,.8)}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229/var(--tw-bg-opacity,1))}.bg-emerald-500{--tw-bg-opacity:1;background-color:rgb(16 185 129/var(--tw-bg-opacity,1))}.bg-gray-800{--tw-bg-opacity:1;background-color:rgb(31 41 55/var(--tw-bg-opacity,1))}.bg-rose-400{--tw-bg-opacity:1;background-color:rgb(251 113 133/var(--tw-bg-opacity,1))}.bg-rose-500{--tw-bg-opacity:1;background-color:rgb(244 63 94/var(--tw-bg-opacity,1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255/var(--tw-bg-opacity,1))}.bg-white\/10{background-color:hsla(0,0%,100%,.1)}.bg-white\/20{background-color:hsla(0,0%,100%,.2)}.bg-white\/60{background-color:hsla(0,0%,100%,.6)}.bg-white\/95{background-color:hsla(0,0%,100%,.95)}.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}.from-\[var\(--c-beers-1\)\]{--tw-gradient-from:var(--c-beers-1) var(--tw-gradient-from-position);--tw-gradient-to:hsla(0,0%,100%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.from-\[var\(--c-premium-1\)\]{--tw-gradient-from:var(--c-premium-1) var(--tw-gradient-from-position);--tw-gradient-to:hsla(0,0%,100%,0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to)}.to-\[var\(--c-beers-2\)\]{--tw-gradient-to:var(--c-beers-2) var(--tw-gradient-to-position)}.to-\[var\(--c-premium-2\)\]{--tw-gradient-to:var(--c-premium-2) var(--tw-gradient-to-position)}.p-10{padding:2.5rem}.p-2{padding:.5rem}.p-2\.5{padding:.625rem}.p-3{padding:.75rem}.p-3\.5{padding:.875rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-1{padding-left:.25rem;padding-right:.25rem}.px-2{padding-left:.5rem;padding-right:.5rem}.px-2\.5{padding-left:.625rem;padding-right:.625rem}.px-3{padding-left:.75rem;padding-right:.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:.125rem;padding-bottom:.125rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-1\.5{padding-top:.375rem;padding-bottom:.375rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.py-3{padding-top:.75rem;padding-bottom:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pb-2{padding-bottom:.5rem}.pb-4{padding-bottom:1rem}.pb-40{padding-bottom:10rem}.pr-11{padding-right:2.75rem}.pr-2{padding-right:.5rem}.pt-4{padding-top:1rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.text-right{text-align:right}.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[7rem\]{font-size:7rem}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:.75rem;line-height:1rem}.font-bold{font-weight:700}.font-extrabold{font-weight:800}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.tracking-\[0\.15em\]{letter-spacing:.15em}.tracking-tight{letter-spacing:-.025em}.tracking-wide{letter-spacing:.025em}.tracking-wider{letter-spacing:.05em}.tracking-widest{letter-spacing:.1em}.text-\[var\(--c-beers-2\)\]{color:var(--c-beers-2)}.text-\[var\(--c-premium-2\)\]{color:var(--c-premium-2)}.text-\[var\(--c-wells-2\)\]{color:var(--c-wells-2)}.text-\[var\(--text-main\)\]{color:var(--text-main)}.text-\[var\(--text-soft\)\]{color:var(--text-soft)}.text-amber-700{--tw-text-opacity:1;color:rgb(180 83 9/var(--tw-text-opacity,1))}.text-black{--tw-text-opacity:1;color:rgb(0 0 0/var(--tw-text-opacity,1))}.text-emerald-500{--tw-text-opacity:1;color:rgb(16 185 129/var(--tw-text-opacity,1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105/var(--tw-text-opacity,1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87/var(--tw-text-opacity,1))}.text-rose-500{--tw-text-opacity:1;color:rgb(244 63 94/var(--tw-text-opacity,1))}.text-rose-600{--tw-text-opacity:1;color:rgb(225 29 72/var(--tw-text-opacity,1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.placeholder-\[\#A7B0C0\]::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(167 176 192/var(--tw-placeholder-opacity,1))}.placeholder-\[\#A7B0C0\]::placeholder{--tw-placeholder-opacity:1;color:rgb(167 176 192/var(--tw-placeholder-opacity,1))}.placeholder-\[\#C3CAD8\]::-moz-placeholder{--tw-placeholder-opacity:1;color:rgb(195 202 216/var(--tw-placeholder-opacity,1))}.placeholder-\[\#C3CAD8\]::placeholder{--tw-placeholder-opacity:1;color:rgb(195 202 216/var(--tw-placeholder-opacity,1))}.opacity-0{opacity:0}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgba(0,0,0,.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color)}.shadow-2xl,.shadow-\[0_0_50px_rgba\(37\2c 99\2c 235\2c 0\.25\)\]{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-\[0_0_50px_rgba\(37\2c 99\2c 235\2c 0\.25\)\]{--tw-shadow:0 0 50px rgba(37,99,235,.25);--tw-shadow-colored:0 0 50px var(--tw-shadow-color)}.shadow-\[0_12px_28px_-8px_rgba\(37\2c 99\2c 235\2c 0\.55\)\]{--tw-shadow:0 12px 28px -8px rgba(37,99,235,.55);--tw-shadow-colored:0 12px 28px -8px var(--tw-shadow-color)}.shadow-\[0_12px_28px_-8px_rgba\(37\2c 99\2c 235\2c 0\.55\)\],.shadow-lg{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color),0 4px 6px -4px var(--tw-shadow-color)}.shadow-md{--tw-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color),0 2px 4px -2px var(--tw-shadow-color)}.shadow-md,.shadow-sm{box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgba(0,0,0,.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color),0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}.shadow-blue-500\/25{--tw-shadow-color:rgba(59,130,246,.25);--tw-shadow:var(--tw-shadow-colored)}.shadow-blue-500\/30{--tw-shadow-color:rgba(59,130,246,.3);--tw-shadow:var(--tw-shadow-colored)}.shadow-emerald-500\/30{--tw-shadow-color:rgba(16,185,129,.3);--tw-shadow:var(--tw-shadow-colored)}.shadow-rose-500\/30{--tw-shadow-color:rgba(244,63,94,.3);--tw-shadow:var(--tw-shadow-colored)}.outline-none{outline:2px solid transparent;outline-offset:2px}.ring-2{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.blur{--tw-blur:blur(8px)}.blur,.filter{filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px)}.backdrop-blur-sm,.backdrop-filter{-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-colors{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1);transition-duration:.15s}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(.4,0,.2,1)}.duration-150,.transition-transform{transition-duration:.15s}.hover\:border-\[var\(--c-beers-1\)\]:hover{border-color:var(--c-beers-1)}.hover\:border-\[var\(--c-premium-1\)\]:hover{border-color:var(--c-premium-1)}.hover\:bg-\[\#E7EBF2\]:hover{--tw-bg-opacity:1;background-color:rgb(231 235 242/var(--tw-bg-opacity,1))}.hover\:bg-\[\#F1F4F9\]:hover{--tw-bg-opacity:1;background-color:rgb(241 244 249/var(--tw-bg-opacity,1))}.hover\:bg-\[var\(--c-premium-1\)\]:hover{background-color:var(--c-premium-1)}.hover\:bg-\[var\(--c-premium-2\)\]:hover{background-color:var(--c-premium-2)}.hover\:bg-amber-100:hover{--tw-bg-opacity:1;background-color:rgb(254 243 199/var(--tw-bg-opacity,1))}.hover\:bg-emerald-50:hover{--tw-bg-opacity:1;background-color:rgb(236 253 245/var(--tw-bg-opacity,1))}.hover\:bg-emerald-600:hover{--tw-bg-opacity:1;background-color:rgb(5 150 105/var(--tw-bg-opacity,1))}.hover\:bg-rose-50:hover{--tw-bg-opacity:1;background-color:rgb(255 241 242/var(--tw-bg-opacity,1))}.hover\:bg-rose-500:hover{--tw-bg-opacity:1;background-color:rgb(244 63 94/var(--tw-bg-opacity,1))}.hover\:bg-rose-600:hover{--tw-bg-opacity:1;background-color:rgb(225 29 72/var(--tw-bg-opacity,1))}.hover\:bg-white\/20:hover{background-color:hsla(0,0%,100%,.2)}.hover\:bg-white\/30:hover{background-color:hsla(0,0%,100%,.3)}.hover\:text-\[var\(--text-main\)\]:hover{color:var(--text-main)}.hover\:text-rose-500:hover{--tw-text-opacity:1;color:rgb(244 63 94/var(--tw-text-opacity,1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255/var(--tw-text-opacity,1))}.hover\:underline:hover{text-decoration-line:underline}.hover\:opacity-95:hover{opacity:.95}.hover\:brightness-105:hover{--tw-brightness:brightness(1.05);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.focus\:ring-2:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)}.focus\:ring-\[var\(--c-beers-1\)\]:focus{--tw-ring-color:var(--c-beers-1)}.focus\:ring-\[var\(--c-premium-1\)\]:focus{--tw-ring-color:var(--c-premium-1)}.active\:scale-90:active{--tw-scale-x:.9;--tw-scale-y:.9}.active\:scale-90:active,.active\:scale-95:active{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95}.active\:scale-\[0\.98\]:active{--tw-scale-x:0.98;--tw-scale-y:0.98}.active\:scale-\[0\.98\]:active,.active\:scale-\[0\.99\]:active{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.active\:scale-\[0\.99\]:active{--tw-scale-x:0.99;--tw-scale-y:0.99}.group:hover .group-hover\:opacity-100{opacity:1}</style>
+    <style>
+        /* --- TEMA "SPECTRUM" --- */
+        :root { 
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Outfit', sans-serif;
+            --bg-body: #F3F6FB;
+            --text-main: #1E2433;
+            --text-soft: #6B7588;
+            --card: #FFFFFF;
+            --border-soft: #E7EBF2;
+
+            --c-premium-1: #FBBF24; --c-premium-2: #D97706;
+            --c-wells-1: #2DD4BF;   --c-wells-2: #0D9488;
+            --c-seltzer-1: #38BDF8; --c-seltzer-2: #0284C7;
+            --c-beers-1: #60A5FA;   --c-beers-2: #2563EB;
+            --c-wines-1: #A78BFA;   --c-wines-2: #7C3AED;
+            --c-nonalc-1: #94A3B8;  --c-nonalc-2: #475569;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            background-image:
+                radial-gradient(circle at 12% 8%, rgba(251,191,36,0.14) 0%, transparent 40%),
+                radial-gradient(circle at 88% 14%, rgba(56,189,248,0.14) 0%, transparent 42%),
+                radial-gradient(circle at 50% 95%, rgba(167,139,250,0.14) 0%, transparent 45%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            min-height: 100vh;
+            overscroll-behavior-y: none;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, .impact-text { font-family: var(--font-head); letter-spacing: -0.01em; }
+
+        .sticky-header-industrial {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background-color: rgba(243,246,251,0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-soft);
+            box-shadow: 0 8px 24px -12px rgba(30,36,51,0.12);
+        }
+
+        .search-industrial { background-color: #F1F4F9; border: 1px solid var(--border-soft); color: var(--text-main); font-family: var(--font-body); font-weight: 600; border-radius: 1rem; }
+        .search-industrial::placeholder { color: #A7B0C0; font-weight: 500; }
+
+        .cat-block {
+            width: 100%; padding: 1.25rem; text-align: left; margin-bottom: 0; border-radius: 1.25rem;
+            font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; line-height: 1.1; color: white;
+            border: none; display: flex; flex-direction: column; justify-content: center;
+            box-shadow: 0 14px 28px -14px rgba(30,36,51,0.35);
+        }
+        .cat-sub { background-color: rgba(255,255,255,0.22); color: white; font-family: var(--font-head); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.05em; border-radius: 0.4rem; padding: 0.2rem 0.6rem; margin-top: 0.4rem; display: inline-block; width: fit-content; }
+        .modal-industrial { background-color: var(--card); border: 1px solid var(--border-soft); color: var(--text-main); border-radius: 1.5rem; }
+        #reader { border: 3px solid #2563EB !important; background: #000; border-radius: 1.25rem; overflow: hidden; }
+
+        .bg-premium { background: linear-gradient(135deg, var(--c-premium-1), var(--c-premium-2)); }
+        .bg-wells    { background: linear-gradient(135deg, var(--c-wells-1), var(--c-wells-2)); }
+        .bg-seltzer  { background: linear-gradient(135deg, var(--c-seltzer-1), var(--c-seltzer-2)); }
+        .bg-beers    { background: linear-gradient(135deg, var(--c-beers-1), var(--c-beers-2)); }
+        .bg-wines    { background: linear-gradient(135deg, var(--c-wines-1), var(--c-wines-2)); }
+        .bg-nonalc   { background: linear-gradient(135deg, var(--c-nonalc-1), var(--c-nonalc-2)); color: white !important; }
+
+        .menu-backdrop { position: fixed; inset: 0; z-index: 45; background: rgba(30,36,51, 0.25); backdrop-filter: blur(3px); }
+        .animate-in { animation: slideUp 0.2s ease-out; } @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        input[type=number]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        import { getFirestore, doc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+        window.fb = { initializeApp, getFirestore, doc, onSnapshot, setDoc, getAuth, signInAnonymously, onAuthStateChanged };
+    </script>
+
+    <script type="module">
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+const { useState, useEffect, useMemo, useRef, Component } = React;
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+  render() {
+    var _a;
+    if (this.state.hasError) return /* @__PURE__ */ React.createElement("div", { className: "p-10 text-center bg-white h-screen flex flex-col justify-center items-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-rose-500 font-extrabold text-2xl" }, "Hubo un error"), /* @__PURE__ */ React.createElement("div", { className: "text-xs mt-2 text-[var(--text-soft)] font-mono" }, (_a = this.state.error) == null ? void 0 : _a.toString()));
+    return this.props.children;
+  }
+}
+const FIREBASE_CONFIG = { apiKey: "AIzaSyDqdJcKILp5kQ4sTxVm8Ch5E7oXfMD3BAM", authDomain: "master-control-palmas.firebaseapp.com", projectId: "master-control-palmas", storageBucket: "master-control-palmas.firebasestorage.app", messagingSenderId: "681752784684", appId: "1:681752784684:web:e4a4a4ce96d587380d4689" };
+const ZONES_CONFIG = {
+  bar1: [{ id: "bar1_cooler", label: "Cooler Beer", icon: "\u{1F9CA}" }, { id: "bar1_small_cooler_1", label: "Small 1", icon: "\u2744\uFE0F" }, { id: "bar1_small_cooler_2", label: "Small 2", icon: "\u2744\uFE0F" }, { id: "bar1_reaching", label: "Reaching", icon: "\u270B" }, { id: "bar1_shelf_full", label: "Shelf Full", icon: "\u{1F37E}" }, { id: "bar1_shelf_open", label: "Shelf Open", icon: "\u{1F943}" }, { id: "bar1_well_1", label: "Well 1", icon: "\u{1F943}" }, { id: "bar1_well_2", label: "Well 2", icon: "\u{1F943}" }],
+  bar2: [{ id: "bar2_cooler", label: "Cooler", icon: "\u{1F9CA}" }, { id: "bar2_small_cooler", label: "Small Cooler", icon: "\u2744\uFE0F" }],
+  bodega: [{ id: "bodega_closet", label: "Closet", icon: "\u{1F6AA}" }, { id: "bodega_shelves", label: "Shelves", icon: "\u{1F5C4}\uFE0F" }]
+};
+const playSound = (type) => {
+  try {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+    const ctx = new AudioContext();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    const now = ctx.currentTime;
+    if (type === "success") {
+      osc.type = "square";
+      osc.frequency.setValueAtTime(440, now);
+      osc.frequency.linearRampToValueAtTime(880, now + 0.1);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.linearRampToValueAtTime(1e-3, now + 0.1);
+      osc.start(now);
+      osc.stop(now + 0.1);
+    }
+    if (type === "error") {
+      osc.type = "sawtooth";
+      osc.frequency.setValueAtTime(100, now);
+      osc.frequency.linearRampToValueAtTime(50, now + 0.3);
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.linearRampToValueAtTime(1e-3, now + 0.3);
+      osc.start(now);
+      osc.stop(now + 0.3);
+    }
+    if (type === "add") {
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(600, now);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.linearRampToValueAtTime(1e-3, now + 0.05);
+      osc.start(now);
+      osc.stop(now + 0.05);
+    }
+    if (type === "sub") {
+      osc.type = "square";
+      osc.frequency.setValueAtTime(200, now);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.linearRampToValueAtTime(1e-3, now + 0.05);
+      osc.start(now);
+      osc.stop(now + 0.05);
+    }
+    if (type === "blip") {
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(1200, now);
+      gain.gain.setValueAtTime(0.05, now);
+      gain.gain.linearRampToValueAtTime(1e-3, now + 0.03);
+      osc.start(now);
+      osc.stop(now + 0.03);
+    }
+    if (type === "connect") {
+      osc.type = "square";
+      osc.frequency.setValueAtTime(220, now);
+      osc.frequency.linearRampToValueAtTime(440, now + 0.2);
+      gain.gain.setValueAtTime(0.1, now);
+      gain.gain.linearRampToValueAtTime(1e-3, now + 0.2);
+      osc.start(now);
+      osc.stop(now + 0.2);
+    }
+  } catch (e) {
+  }
+};
+const IconWrapper = ({ children, className }) => /* @__PURE__ */ React.createElement("svg", { xmlns: "http://www.w3.org/2000/svg", width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.5", strokeLinecap: "square", strokeLinejoin: "miter", className }, children);
+const Icons = {
+  Scan: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M3 7V5a2 2 0 0 1 2-2h2" }), /* @__PURE__ */ React.createElement("path", { d: "M17 3h2a2 2 0 0 1 2 2v2" }), /* @__PURE__ */ React.createElement("path", { d: "M21 17v2a2 2 0 0 1-2 2h-2" }), /* @__PURE__ */ React.createElement("path", { d: "M7 21H5a2 2 0 0 1-2-2v-2" }), /* @__PURE__ */ React.createElement("rect", { width: "10", height: "6", x: "7", y: "9", rx: "1" })),
+  Search: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("circle", { cx: "11", cy: "11", r: "8" }), /* @__PURE__ */ React.createElement("path", { d: "m21 21-4.3-4.3" })),
+  MapPin: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" }), /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "10", r: "3" })),
+  Beer: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M17 11h1a3 3 0 0 1 0 6h-1" }), /* @__PURE__ */ React.createElement("path", { d: "M9 12h6" }), /* @__PURE__ */ React.createElement("path", { d: "M9 12v3a8 8 0 0 1-16 0v-3" }), /* @__PURE__ */ React.createElement("path", { d: "M22 6h-7a2 2 0 0 0-2 2v2" }), /* @__PURE__ */ React.createElement("path", { d: "M5 12V3a2 2 0 0 1 2-2h7" })),
+  Box: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" }), /* @__PURE__ */ React.createElement("path", { d: "m3.3 7 8.7 5 8.7-5" }), /* @__PURE__ */ React.createElement("path", { d: "M12 22v-9" })),
+  Wine: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M8 22h8" }), /* @__PURE__ */ React.createElement("path", { d: "M7 10h10" }), /* @__PURE__ */ React.createElement("path", { d: "M12 15v7" }), /* @__PURE__ */ React.createElement("path", { d: "M12 15a5 5 0 0 0 5-5c0-2-.5-4-2-8H9c-1.5 4-2 6-2 8a5 5 0 0 0 5 5Z" })),
+  ChevronDown: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "m6 9 6 6 6-6" })),
+  List: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("line", { x1: "8", y1: "6", x2: "21", y2: "6" }), /* @__PURE__ */ React.createElement("line", { x1: "8", y1: "12", x2: "21", y2: "12" }), /* @__PURE__ */ React.createElement("line", { x1: "8", y1: "18", x2: "21", y2: "18" }), /* @__PURE__ */ React.createElement("line", { x1: "3", y1: "6", x2: "3.01", y2: "6" }), /* @__PURE__ */ React.createElement("line", { x1: "3", y1: "12", x2: "3.01", y2: "12" }), /* @__PURE__ */ React.createElement("line", { x1: "3", y1: "18", x2: "3.01", y2: "18" })),
+  Link: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" }), /* @__PURE__ */ React.createElement("path", { d: "M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" })),
+  Save: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" }), /* @__PURE__ */ React.createElement("polyline", { points: "17 21 17 13 7 13 7 21" }), /* @__PURE__ */ React.createElement("polyline", { points: "7 3 7 8 15 8" })),
+  Star: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("polygon", { points: "12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" })),
+  Package: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "m7.5 4.27 9 5.15" }), /* @__PURE__ */ React.createElement("path", { d: "M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" }), /* @__PURE__ */ React.createElement("path", { d: "m3.3 7 8.7 5 8.7-5" }), /* @__PURE__ */ React.createElement("path", { d: "M12 22v-9" })),
+  Barcode: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M3 5v14" }), /* @__PURE__ */ React.createElement("path", { d: "M8 5v14" }), /* @__PURE__ */ React.createElement("path", { d: "M12 5v14" }), /* @__PURE__ */ React.createElement("path", { d: "M17 5v14" }), /* @__PURE__ */ React.createElement("path", { d: "M21 5v14" })),
+  ShoppingCart: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("circle", { cx: "8", cy: "21", r: "1" }), /* @__PURE__ */ React.createElement("circle", { cx: "19", cy: "21", r: "1" }), /* @__PURE__ */ React.createElement("path", { d: "M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" })),
+  Settings: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "3" }), /* @__PURE__ */ React.createElement("path", { d: "M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1Z" })),
+  Scale: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("rect", { x: "4", y: "4", width: "16", height: "16", rx: "2" }), /* @__PURE__ */ React.createElement("circle", { cx: "12", cy: "12", r: "3" }), /* @__PURE__ */ React.createElement("path", { d: "M12 9v3" })),
+  Wrench: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" })),
+  Refresh: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" }), /* @__PURE__ */ React.createElement("path", { d: "M21 3v5h-5" }), /* @__PURE__ */ React.createElement("path", { d: "M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" }), /* @__PURE__ */ React.createElement("path", { d: "M8 21H3v-5" })),
+  Reset: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" }), /* @__PURE__ */ React.createElement("path", { d: "M3 3v5h5" })),
+  Upload: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" }), /* @__PURE__ */ React.createElement("polyline", { points: "17 8 12 3 7 8" }), /* @__PURE__ */ React.createElement("line", { x1: "12", y1: "3", x2: "12", y2: "15" })),
+  Bluetooth: (p) => /* @__PURE__ */ React.createElement(IconWrapper, __spreadValues({}, p), /* @__PURE__ */ React.createElement("path", { d: "m7 7 10 10-5 5V2l5 5L7 17" }))
+};
+const LoginScreen = ({ onLogin }) => {
+  const [pin, setPin] = useState("");
+  const handlePress = (n) => {
+    playSound("blip");
+    const newP = pin + n;
+    setPin(newP);
+    if (newP === "1130") {
+      playSound("success");
+      onLogin();
+    }
+    if (newP.length >= 4 && newP !== "1130") {
+      playSound("error");
+      setPin("");
+    }
+  };
+  return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 flex flex-col items-center justify-center p-4 z-50" }, " ", /* @__PURE__ */ React.createElement("div", { className: "modal-industrial w-full max-w-sm p-8 shadow-2xl" }, " ", /* @__PURE__ */ React.createElement("div", { className: "mb-8 text-center" }, " ", /* @__PURE__ */ React.createElement("div", { className: "w-16 h-16 rounded-2xl bg-premium mx-auto mb-4 flex items-center justify-center shadow-lg" }, /* @__PURE__ */ React.createElement(Icons.Scan, { className: "text-white w-8 h-8" })), " ", /* @__PURE__ */ React.createElement("h1", { className: "text-3xl text-[var(--text-main)] font-extrabold tracking-tight" }, "Scanner Pro"), " ", /* @__PURE__ */ React.createElement("p", { className: "text-sm text-[var(--text-soft)] font-medium mt-1" }, "Ingres\xE1 tu c\xF3digo de acceso"), " "), " ", /* @__PURE__ */ React.createElement("div", { className: "flex justify-center gap-3 mb-8" }, [0, 1, 2, 3].map((i) => /* @__PURE__ */ React.createElement("div", { key: i, className: `w-3 h-3 rounded-full transition-all duration-150 ${pin.length > i ? "bg-gradient-to-br from-[var(--c-premium-1)] to-[var(--c-premium-2)] scale-110" : "bg-[var(--border-soft)]"}` }))), " ", /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-3 gap-3" }, [1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((n) => /* @__PURE__ */ React.createElement("button", { key: n, onClick: () => handlePress(n), className: `h-16 w-16 rounded-2xl text-2xl font-bold text-[var(--text-main)] bg-[#F1F4F9] hover:bg-[var(--c-premium-1)] hover:text-white active:scale-95 transition-all duration-150 ${n === 0 ? "col-start-2" : ""}` }, n))), " "), " ");
+};
+const ScannerModal = ({ onScan, onClose }) => {
+  const [libMissing, setLibMissing] = useState(false);
+  useEffect(() => {
+    if (typeof Html5QrcodeScanner === "undefined") {
+      setLibMissing(true);
+      return;
+    }
+    let scanner;
+    try {
+      scanner = new Html5QrcodeScanner("reader", { fps: 10, qrbox: { width: 250, height: 250 } }, false);
+      scanner.render(onScan, (e) => {
+      });
+    } catch (e) {
+      console.warn(e);
+      setLibMissing(true);
+    }
+    return () => {
+      if (scanner) scanner.clear().catch(() => {
+      });
+    };
+  }, []);
+  if (libMissing) {
+    return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 bg-white z-40 flex flex-col items-center justify-center p-8 text-center gap-4" }, " ", /* @__PURE__ */ React.createElement("h2", { className: "text-[var(--c-beers-2)] font-extrabold text-lg" }, "No se pudo cargar el esc\xE1ner"), " ", /* @__PURE__ */ React.createElement("p", { className: "text-[var(--text-soft)] text-sm" }, "Revis\xE1 tu conexi\xF3n e intent\xE1 de nuevo."), " ", /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "mt-2 bg-[#F1F4F9] text-[var(--text-main)] px-6 py-3 rounded-xl font-bold" }, "Cerrar"), " ");
+  }
+  return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 bg-black z-40 flex flex-col" }, " ", /* @__PURE__ */ React.createElement("div", { className: "p-4 flex justify-between items-center relative z-10 bg-black/80 backdrop-blur-sm" }, " ", /* @__PURE__ */ React.createElement("h2", { className: "text-white font-bold flex items-center gap-2 text-base" }, /* @__PURE__ */ React.createElement("div", { className: "w-2.5 h-2.5 rounded-full bg-[var(--c-beers-1)] animate-pulse" }), " Sensor \xF3ptico"), " ", /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "text-white font-bold bg-white/10 hover:bg-rose-500 px-4 py-1.5 rounded-lg transition-colors" }, "Detener"), " "), " ", /* @__PURE__ */ React.createElement("div", { className: "flex-1 flex items-center justify-center p-4 relative" }, " ", /* @__PURE__ */ React.createElement("div", { id: "reader", className: "w-full max-w-sm border-2 border-[var(--c-beers-1)] bg-black rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(37,99,235,0.25)]" }), " "), " ");
+};
+const LocationModal = ({ onClose, onSelect }) => {
+  const locs = [{ id: "bar1", l: "Bar 1", i: Icons.Beer, color: "beers" }, { id: "bar2", l: "Bar 2", i: Icons.Wine, color: "wines" }, { id: "bodega", l: "Bodega", i: Icons.Box, color: "wells" }, { id: "barroluco", l: "Barroluco", i: Icons.MapPin, color: "premium" }, { id: "purchases", l: "Compras", i: Icons.ShoppingCart, color: "seltzer" }];
+  const [selMain, setSelMain] = useState(null);
+  const subZones = selMain ? ZONES_CONFIG[selMain] || [] : [];
+  return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 z-50 flex items-center justify-center p-4 animate-in bg-[var(--text-main)]/40 backdrop-blur-sm" }, " ", /* @__PURE__ */ React.createElement("div", { className: "w-full max-w-lg rounded-3xl bg-white shadow-2xl overflow-hidden" }, " ", /* @__PURE__ */ React.createElement("div", { className: "p-5 border-b border-[var(--border-soft)] flex justify-between items-center" }, /* @__PURE__ */ React.createElement("h2", { className: "text-xl font-extrabold text-[var(--text-main)]" }, selMain ? "Eleg\xED la sub-zona" : "Eleg\xED el sector"), /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "text-[var(--text-soft)] font-semibold hover:text-[var(--text-main)] px-3 py-1.5 rounded-lg transition-colors" }, "Cancelar")), " ", /* @__PURE__ */ React.createElement("div", { className: "p-4 overflow-y-auto grid grid-cols-1 gap-3" }, " ", !selMain ? locs.map((l) => /* @__PURE__ */ React.createElement("button", { key: l.id, onClick: () => {
+    if (ZONES_CONFIG[l.id]) setSelMain(l.id);
+    else onSelect(l.id, null);
+  }, className: `bg-${l.color} text-white rounded-2xl p-5 flex items-center gap-4 hover:brightness-105 active:scale-[0.99] transition-all shadow-sm` }, /* @__PURE__ */ React.createElement(l.i, { className: "w-7 h-7" }), /* @__PURE__ */ React.createElement("span", { className: "font-bold text-lg" }, l.l))) : subZones.map((z) => /* @__PURE__ */ React.createElement("button", { key: z.id, onClick: () => onSelect(selMain, z.id), className: "bg-[#F1F4F9] hover:bg-[#E7EBF2] text-[var(--text-main)] rounded-2xl p-4 flex items-center gap-4 transition-colors" }, /* @__PURE__ */ React.createElement("span", { className: "text-2xl" }, z.icon), /* @__PURE__ */ React.createElement("span", { className: "font-bold text-base" }, z.label))), " ", selMain && subZones.length === 0 && /* @__PURE__ */ React.createElement("div", { className: "text-center py-6" }, /* @__PURE__ */ React.createElement("button", { onClick: () => onSelect(selMain, null), className: "text-[var(--c-beers-2)] font-bold text-base hover:underline" }, "Elegir todo el sector")), " "), " "), " ");
+};
+const PurchasesLogModal = ({ onClose, data }) => {
+  const purchasedItems = [];
+  let totalPurchasedUnits = 0;
+  data.forEach((cat) => {
+    cat.items.forEach((item) => {
+      const val = parseFloat(item.purchases);
+      if (!isNaN(val) && val > 0) {
+        purchasedItems.push(__spreadProps(__spreadValues({}, item), { categoryName: cat.category, purchaseVal: val }));
+        totalPurchasedUnits += val;
+      }
+    });
+  });
+  return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 z-[80] flex flex-col bg-white animate-in overflow-hidden" }, " ", /* @__PURE__ */ React.createElement("div", { className: "bg-premium p-5 flex justify-between items-center shadow-md" }, " ", /* @__PURE__ */ React.createElement("h2", { className: "text-xl font-extrabold text-white" }, "Registro de ingresos"), " ", /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "px-5 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl font-bold text-sm transition-colors" }, "Cerrar"), " "), " ", /* @__PURE__ */ React.createElement("div", { className: "flex-1 overflow-y-auto p-4 bg-[var(--bg-body)]" }, " ", purchasedItems.length === 0 ? /* @__PURE__ */ React.createElement("div", { className: "text-center text-[var(--text-soft)] mt-20 font-bold text-lg" }, "No hay ingresos registrados") : /* @__PURE__ */ React.createElement("div", { className: "space-y-4" }, /* @__PURE__ */ React.createElement("div", { className: "bg-white rounded-2xl border border-[var(--border-soft)] shadow-sm p-6 flex flex-col items-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-xs text-[var(--c-premium-2)] uppercase font-bold tracking-widest mb-1" }, "Total de la sesi\xF3n"), /* @__PURE__ */ React.createElement("div", { className: "text-5xl font-extrabold text-[var(--text-main)]" }, totalPurchasedUnits)), /* @__PURE__ */ React.createElement("div", { className: "grid gap-2" }, purchasedItems.map((item, idx) => /* @__PURE__ */ React.createElement("div", { key: idx, className: "bg-white rounded-xl border border-[var(--border-soft)] p-4 flex justify-between items-center hover:border-[var(--c-premium-1)] transition-colors shadow-sm" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("div", { className: "font-bold text-[var(--text-main)] text-base" }, item.name), /* @__PURE__ */ React.createElement("div", { className: "text-xs text-[var(--text-soft)] font-semibold bg-[#F1F4F9] px-2 py-0.5 rounded-md inline-block mt-1" }, item.categoryName)), /* @__PURE__ */ React.createElement("div", { className: "text-[var(--c-premium-2)] font-extrabold text-2xl" }, "+", item.purchaseVal))))), " "), " ");
+};
+const PremiumControlModal = ({ onClose, data, onUpdateStickers }) => {
+  const premiumCategory = data.find((cat) => cat.category.includes("Premium"));
+  const items = premiumCategory ? premiumCategory.items : [];
+  const [searchTerm, setSearchTerm] = useState("");
+  const [inputs, setInputs] = useState({});
+  const [scanning, setScanning] = useState(false);
+  const handleInputChange = (itemId, val) => {
+    setInputs((prev) => __spreadProps(__spreadValues({}, prev), { [itemId]: val }));
+  };
+  const handleAddSticker = (item) => {
+    const newSticker = inputs[item.id];
+    if (!newSticker || !newSticker.trim()) return;
+    const currentStickers = item.sticker_ids || [];
+    if (currentStickers.includes(newSticker.trim())) {
+      playSound("error");
+      return;
+    }
+    const newArray = [...currentStickers, newSticker.trim()];
+    onUpdateStickers(item.id, newArray);
+    setInputs((prev) => __spreadProps(__spreadValues({}, prev), { [item.id]: "" }));
+    playSound("add");
+  };
+  const handleRemoveSticker = (item, stickerToRemove) => {
+    const currentStickers = item.sticker_ids || [];
+    const newArray = currentStickers.filter((s) => s !== stickerToRemove);
+    onUpdateStickers(item.id, newArray);
+    playSound("sub");
+  };
+  const handleScan = (txt) => {
+    const found = items.find((i) => i.barcode && i.barcode.includes(txt) || i.barcode_case && i.barcode_case === txt);
+    if (found) {
+      setSearchTerm(found.name);
+      setScanning(false);
+      playSound("success");
+    } else {
+      playSound("error");
+      alert("PREMIUM BOTTLE NOT FOUND");
+      setScanning(false);
+    }
+  };
+  return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 z-[90] flex flex-col bg-white animate-in overflow-hidden" }, /* @__PURE__ */ React.createElement("div", { className: "bg-premium p-5 flex justify-between items-center" }, /* @__PURE__ */ React.createElement("h2", { className: "text-xl font-extrabold text-white" }, "Control de botellas"), /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "px-5 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl font-bold text-sm transition-colors" }, "Cerrar")), /* @__PURE__ */ React.createElement("div", { className: "p-4 bg-white border-b border-[var(--border-soft)]" }, /* @__PURE__ */ React.createElement("div", { className: "flex gap-2 relative" }, /* @__PURE__ */ React.createElement("input", { type: "text", placeholder: "Buscar botella...", value: searchTerm, onChange: (e) => setSearchTerm(e.target.value), className: "w-full search-industrial p-4 text-base focus:outline-none focus:ring-2 focus:ring-[var(--c-premium-1)]" }), searchTerm && /* @__PURE__ */ React.createElement("button", { onClick: () => setSearchTerm(""), className: "absolute right-16 top-0 bottom-0 px-3 text-[var(--text-soft)] font-bold hover:text-rose-500" }, "\u2715"), /* @__PURE__ */ React.createElement("button", { onClick: () => setScanning(true), className: "bg-premium text-white rounded-xl px-4 flex items-center justify-center shadow-sm active:scale-95 transition-all" }, /* @__PURE__ */ React.createElement(Icons.Scan, { className: "w-6 h-6" })))), /* @__PURE__ */ React.createElement("div", { className: "flex-1 overflow-y-auto p-4 space-y-3 bg-[var(--bg-body)]" }, filteredItems.map((item) => {
+    const stickers = item.sticker_ids || [];
+    return /* @__PURE__ */ React.createElement("div", { key: item.id, className: "rounded-2xl bg-white border border-[var(--border-soft)] shadow-sm p-4" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-start mb-3" }, /* @__PURE__ */ React.createElement("h3", { className: "font-bold text-[var(--text-main)] text-lg" }, item.name), /* @__PURE__ */ React.createElement("div", { className: "bg-premium text-white px-3 py-1 rounded-lg font-bold text-sm" }, stickers.length, " en stock")), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2 mb-4" }, /* @__PURE__ */ React.createElement("input", { type: "number", placeholder: "N\xB0 etiqueta", className: "flex-1 search-industrial px-4 py-2 font-bold text-base", value: inputs[item.id] || "", onChange: (e) => handleInputChange(item.id, e.target.value) }), /* @__PURE__ */ React.createElement("button", { onClick: () => handleAddSticker(item), className: "bg-[var(--c-premium-1)] hover:bg-[var(--c-premium-2)] text-white rounded-xl px-5 py-2 font-bold text-sm shadow-sm active:scale-95 transition-all" }, "+ Agregar")), /* @__PURE__ */ React.createElement("div", { className: "flex flex-wrap gap-2" }, stickers.length === 0 && /* @__PURE__ */ React.createElement("span", { className: "text-sm text-[var(--text-soft)] font-medium" }, "Sin etiquetas cargadas"), stickers.map((sticker, idx) => /* @__PURE__ */ React.createElement("button", { key: idx, onClick: () => handleRemoveSticker(item, sticker), className: "flex items-center gap-2 bg-[#F1F4F9] hover:bg-rose-50 rounded-lg px-3 py-1.5 transition-colors group" }, /* @__PURE__ */ React.createElement("span", { className: "font-mono font-bold text-[var(--text-main)] text-sm" }, sticker), /* @__PURE__ */ React.createElement("span", { className: "text-xs text-rose-500 opacity-0 group-hover:opacity-100 font-bold" }, "\u2715")))));
+  })), scanning && /* @__PURE__ */ React.createElement(ScannerModal, { onScan: handleScan, onClose: () => setScanning(false) }));
+};
+const LinkModal = ({ barcode, data, onLink, onClose }) => {
+  const [search, setSearch] = useState("");
+  const filtered = data.map((c) => __spreadProps(__spreadValues({}, c), { items: c.items.filter((i) => i.name.toLowerCase().includes(search.toLowerCase())) })).filter((c) => c.items.length > 0);
+  return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 z-50 flex flex-col animate-in bg-[var(--text-main)]/40 backdrop-blur-sm" }, " ", /* @__PURE__ */ React.createElement("div", { className: "bg-white p-4 rounded-b-2xl flex flex-col gap-3 shadow-lg" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-extrabold text-[var(--text-main)]" }, "C\xF3digo desconocido"), /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "text-[var(--text-soft)] font-semibold hover:text-[var(--text-main)] px-3 py-1.5 rounded-lg transition-colors" }, "Cancelar")), /* @__PURE__ */ React.createElement("div", { className: "bg-[#F1F4F9] text-[var(--text-main)] p-3 rounded-xl text-center font-mono text-xl font-bold tracking-widest" }, barcode)), " ", /* @__PURE__ */ React.createElement("div", { className: "p-4 bg-white" }, /* @__PURE__ */ React.createElement("input", { type: "text", placeholder: "Buscar producto para vincular...", className: "w-full search-industrial p-4 text-base", value: search, onChange: (e) => setSearch(e.target.value), autoFocus: true })), " ", /* @__PURE__ */ React.createElement("div", { className: "flex-1 overflow-y-auto p-4 space-y-4 bg-[var(--bg-body)]" }, filtered.map((cat) => /* @__PURE__ */ React.createElement("div", { key: cat.category }, /* @__PURE__ */ React.createElement("h3", { className: "text-[var(--text-main)] font-bold text-sm uppercase mb-2 tracking-wide" }, cat.category), cat.items.map((item) => /* @__PURE__ */ React.createElement("button", { key: item.id, onClick: () => onLink(item), className: "w-full text-left bg-white border border-[var(--border-soft)] rounded-xl p-4 mb-2 flex justify-between items-center hover:border-[var(--c-beers-1)] transition-colors shadow-sm group" }, /* @__PURE__ */ React.createElement("span", { className: "font-semibold text-[var(--text-main)]" }, item.name), /* @__PURE__ */ React.createElement("span", { className: "text-xs font-bold text-[var(--c-beers-2)]" }, "Vincular \u2192")))))), " ");
+};
+const ReviewModal = ({ onClose, data, onUpdate }) => {
+  const mainLocs = [{ id: "bar1", label: "BAR 1", bg: "bg-premium", text: "text-black", border: "border-white" }, { id: "bar2", label: "BAR 2", bg: "bg-beers", text: "text-black", border: "border-white" }, { id: "bodega", label: "STORAGE", bg: "bg-wells", text: "text-white", border: "border-white" }, { id: "barroluco", label: "BARROLUCO", bg: "bg-wines", text: "text-white", border: "border-white" }];
+  return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 z-50 flex flex-col animate-in bg-[var(--bg-body)]" }, " ", /* @__PURE__ */ React.createElement("div", { className: "bg-white p-4 border-b border-[var(--border-soft)] flex justify-between items-center shrink-0 shadow-sm" }, /* @__PURE__ */ React.createElement("h2", { className: "text-xl font-extrabold text-[var(--text-main)]" }, "Revisi\xF3n de conteo"), /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "bg-[#F1F4F9] text-[var(--text-main)] px-5 py-2 rounded-xl font-bold hover:bg-[#E7EBF2] transition-colors" }, "Cerrar")), " ", /* @__PURE__ */ React.createElement("div", { className: "flex-1 overflow-y-auto p-4 space-y-6" }, " ", mainLocs.map((main) => {
+    const subZones = ZONES_CONFIG[main.id] || [];
+    const mainTotal = data.reduce((acc, cat) => acc + cat.items.reduce((iAcc, item) => iAcc + (parseFloat(item[main.id]) || 0), 0), 0);
+    const directItems = data.flatMap((cat) => cat.items.filter((i) => (parseFloat(i[main.id]) || 0) > 0)).map((i) => __spreadProps(__spreadValues({}, i), { val: parseFloat(i[main.id]) }));
+    if (mainTotal === 0) return null;
+    return /* @__PURE__ */ React.createElement("div", { key: main.id, className: "rounded-2xl overflow-hidden shadow-sm" }, " ", /* @__PURE__ */ React.createElement("div", { className: `sticky top-0 z-10 py-3 px-4 flex justify-between items-center text-white ${main.bg}` }, " ", /* @__PURE__ */ React.createElement("h3", { className: "font-extrabold text-lg" }, main.label), " ", /* @__PURE__ */ React.createElement("span", { className: "bg-white/20 font-mono text-sm font-bold px-3 py-1 rounded-lg" }, "Total: ", mainTotal), " "), " ", subZones.map((zone) => {
+      const zoneItems = data.flatMap((cat) => cat.items).filter((i) => (parseFloat(i[zone.id]) || 0) > 0).map((i) => __spreadProps(__spreadValues({}, i), { val: parseFloat(i[zone.id]) })).sort((a, b) => (b.last_updated || 0) - (a.last_updated || 0));
+      if (zoneItems.length === 0) return null;
+      return /* @__PURE__ */ React.createElement("div", { key: zone.id, className: "bg-white p-3 border-b border-[var(--border-soft)]" }, " ", /* @__PURE__ */ React.createElement("div", { className: "text-xs font-bold text-[var(--text-soft)] mb-2 uppercase tracking-wider" }, zone.label), " ", /* @__PURE__ */ React.createElement("div", { className: "grid gap-1.5" }, " ", zoneItems.map((item) => {
+        const isMulti = zone.id === "bar1_cooler" && (item.name.toLowerCase().includes("corona") || item.name.toLowerCase().includes("modelo"));
+        return /* @__PURE__ */ React.createElement("div", { key: item.id, className: "bg-[var(--bg-body)] rounded-xl p-2.5 flex justify-between items-center" }, " ", /* @__PURE__ */ React.createElement("span", { className: "font-semibold text-[var(--text-main)] text-sm truncate pr-2 w-full" }, item.name), " ", isMulti ? /* @__PURE__ */ React.createElement("div", { className: "flex gap-1" }, (item.breakdown_bar1_cooler || [0, 0, 0, 0]).map((s, i) => /* @__PURE__ */ React.createElement("div", { key: i, className: "bg-white text-[var(--text-main)] w-7 text-center font-mono text-xs rounded-md border border-[var(--border-soft)] py-1" }, s))) : /* @__PURE__ */ React.createElement("input", { type: "number", value: item.val, onChange: (e) => {
+          const val = parseFloat(e.target.value) || 0;
+          let newTotal = val;
+          subZones.forEach((z) => {
+            if (z.id !== zone.id) newTotal += parseFloat(item[z.id]) || 0;
+          });
+          onUpdate(item.id, { [zone.id]: val, [main.id]: newTotal });
+        }, className: "w-14 bg-white border border-[var(--border-soft)] rounded-lg text-right text-[var(--text-main)] font-mono font-bold text-sm px-2 py-1 focus:ring-2 focus:ring-[var(--c-beers-1)] outline-none" }), " ");
+      }), " "), " ");
+    }), " ", !subZones.length && directItems.map((item) => /* @__PURE__ */ React.createElement("div", { key: item.id, className: "bg-white border-b border-[var(--border-soft)] p-3 flex justify-between items-center" }, /* @__PURE__ */ React.createElement("span", { className: "font-semibold text-[var(--text-main)] text-sm" }, item.name), /* @__PURE__ */ React.createElement("input", { type: "number", value: item.val, onChange: (e) => onUpdate(item.id, main.id, parseFloat(e.target.value) || 0), className: "w-14 bg-[var(--bg-body)] border border-[var(--border-soft)] rounded-lg text-right text-[var(--text-main)] font-mono font-bold text-sm px-2 py-1 outline-none" }))), " ");
+  }), " "), " ");
+};
+const BottleCalibrationModal = ({ item, onClose, onSave }) => {
+  const [full, setFull] = useState(item.weight_full || "");
+  const [empty, setEmpty] = useState(item.weight_empty || "");
+  return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 z-[60] flex flex-col items-center justify-center p-4 animate-in bg-[var(--text-main)]/40 backdrop-blur-sm" }, " ", /* @__PURE__ */ React.createElement("div", { className: "modal-industrial w-full max-w-sm p-6 shadow-2xl" }, " ", /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center mb-6" }, /* @__PURE__ */ React.createElement("h2", { className: "text-xl font-extrabold text-[var(--text-main)]" }, "Configurar balanza"), /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "text-[var(--text-soft)] font-semibold hover:text-[var(--text-main)]" }, "Cancelar")), " ", /* @__PURE__ */ React.createElement("div", { className: "text-center mb-6" }, /* @__PURE__ */ React.createElement("h3", { className: "text-lg font-bold text-[var(--text-main)] mb-1" }, item.name), /* @__PURE__ */ React.createElement("p", { className: "text-xs text-[var(--text-soft)] font-medium" }, "Solo en gramos")), " ", /* @__PURE__ */ React.createElement("div", { className: "space-y-4 mb-6" }, " ", /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "block text-xs font-bold text-[var(--text-soft)] uppercase mb-1.5 tracking-wide" }, "Botella llena"), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ React.createElement("input", { type: "number", placeholder: "1300", className: "w-full search-industrial p-4 text-xl font-bold", value: full, onChange: (e) => setFull(e.target.value) }), /* @__PURE__ */ React.createElement("span", { className: "text-[var(--text-soft)] font-bold" }, "g"))), " ", /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("label", { className: "block text-xs font-bold text-[var(--text-soft)] uppercase mb-1.5 tracking-wide" }, "Botella vac\xEDa"), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2" }, /* @__PURE__ */ React.createElement("input", { type: "number", placeholder: "500", className: "w-full search-industrial p-4 text-xl font-bold", value: empty, onChange: (e) => setEmpty(e.target.value) }), /* @__PURE__ */ React.createElement("span", { className: "text-[var(--text-soft)] font-bold" }, "g"))), " "), " ", /* @__PURE__ */ React.createElement("button", { onClick: () => {
+    if (full && empty) onSave(item.id, full, empty);
+  }, className: "w-full bg-gradient-to-r from-[var(--c-beers-1)] to-[var(--c-beers-2)] hover:opacity-95 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-500/25 active:scale-[0.98] transition-all" }, "Guardar datos"), " "), " ");
+};
+const QuickEditModal = ({ item, onClose, onContinue, onUpdate, initialLocation, initialSubZone, onOpenCalibration, scaleWeight, isScaleConnected, onConnectScale }) => {
+  var _a, _b;
+  const [value, setValue] = useState(0);
+  const [manualGrams, setManualGrams] = useState("");
+  const zones = ZONES_CONFIG[initialLocation] || [];
+  const subZoneId = initialSubZone || ((_a = zones[0]) == null ? void 0 : _a.id);
+  const subZoneLabel = (_b = zones.find((z) => z.id === subZoneId)) == null ? void 0 : _b.label;
+  const targetField = zones.length > 0 ? subZoneId : initialLocation;
+  const historyKey = `last_${targetField}`;
+  const historyVal = item[historyKey] !== void 0 ? item[historyKey] : "-";
+  const isOpenZone = ["bar1_shelf_open", "bar1_well_1", "bar1_well_2", "bar2_small_cooler"].includes(initialSubZone) || initialLocation === "barroluco";
+  const isCaseZone = ["bar1_reaching", "bar1_shelf_full", "bodega_shelves"].includes(initialSubZone) || initialLocation === "purchases";
+  const isMultiCount = subZoneId === "bar1_cooler" && (item.name.toLowerCase().includes("corona") || item.name.toLowerCase().includes("modelo"));
+  const isSmallGroup = !isOpenZone && !isMultiCount;
+  const [slots, setSlots] = useState(() => {
+    if (isMultiCount && item.breakdown_bar1_cooler) return item.breakdown_bar1_cooler;
+    return [0, 0, 0, 0];
+  });
+  const [startVal] = useState(() => parseFloat(item[targetField]) || 0);
+  const [scaleAddedValue, setScaleAddedValue] = useState(0);
+  useEffect(() => {
+    if (!isMultiCount) setValue(parseFloat(item[targetField]) || 0);
+    else {
+      const sum = slots.reduce((a, b) => a + (parseFloat(b) || 0), 0);
+      setValue(sum);
+    }
+  }, [item, targetField, isMultiCount, slots]);
+  useEffect(() => {
+    if (isOpenZone && scaleWeight !== null && scaleWeight !== void 0 && scaleWeight !== "") {
+      setManualGrams(scaleWeight);
+      performCalculation(scaleWeight, true);
+    }
+  }, [scaleWeight]);
+  const updateValue = (next) => {
+    setValue(next);
+    if (zones.length > 0) {
+      let newTotal = 0;
+      zones.forEach((z) => {
+        if (z.id === subZoneId) newTotal += next;
+        else newTotal += parseFloat(item[z.id]) || 0;
+      });
+      onUpdate(item.id, { [subZoneId]: next, [initialLocation]: newTotal });
+    } else {
+      onUpdate(item.id, initialLocation, next);
+    }
+  };
+  const handleSlotChange = (idx, val) => {
+    const newSlots = [...slots];
+    newSlots[idx] = val === "" ? 0 : parseFloat(val);
+    setSlots(newSlots);
+    const newSum = newSlots.reduce((a, b) => a + b, 0);
+    setValue(newSum);
+    let newTotal = 0;
+    zones.forEach((z) => {
+      if (z.id === subZoneId) newTotal += newSum;
+      else newTotal += parseFloat(item[z.id]) || 0;
+    });
+    onUpdate(item.id, { [subZoneId]: newSum, [initialLocation]: newTotal, breakdown_bar1_cooler: newSlots });
+  };
+  const handleDelta = (delta) => {
+    const next = Math.max(0, Math.round((value + delta) * 100) / 100);
+    updateValue(next);
+    if (delta > 0) playSound("add");
+    else playSound("sub");
+  };
+  const performCalculation = (gramsInput, isAuto = false) => {
+    const grams = parseFloat(gramsInput);
+    if (isNaN(grams) && gramsInput !== "") return;
+    const full = parseFloat(item.weight_full);
+    const empty = parseFloat(item.weight_empty);
+    if (!full || !empty) return;
+    const netLiquid = full - empty;
+    const currentLiquid = grams - empty;
+    let calculatedUnits = currentLiquid / netLiquid;
+    if (calculatedUnits < 0) calculatedUnits = 0;
+    const currentBottleValue = Math.round(calculatedUnits * 100) / 100;
+    setScaleAddedValue(currentBottleValue);
+    if (isAuto && currentBottleValue === 0 && startVal > 0) {
+      return;
+    }
+    let finalVal;
+    if (isAuto) {
+      finalVal = startVal + currentBottleValue;
+    } else {
+      finalVal = currentBottleValue;
+    }
+    finalVal = Math.round(finalVal * 100) / 100;
+    updateValue(finalVal);
+  };
+  const handleAddScaleToTotal = () => {
+    const next = Math.max(0, Math.round((value + scaleAddedValue) * 100) / 100);
+    updateValue(next);
+    playSound("add");
+  };
+  const handleManualInput = (val) => {
+    setManualGrams(val);
+    performCalculation(val, false);
+  };
+  const sessionDiff = Math.round((value - startVal) * 100) / 100;
+  const diffSign = sessionDiff > 0 ? "+" : "";
+  const diffColor = sessionDiff > 0 ? "text-emerald-500" : sessionDiff < 0 ? "text-rose-500" : "text-[var(--text-soft)]";
+  return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 z-50 flex flex-col items-center justify-center p-2 animate-in" }, " ", /* @__PURE__ */ React.createElement("div", { className: "w-full max-w-md flex flex-col h-[95vh] rounded-3xl bg-white relative shadow-2xl overflow-hidden" }, " ", /* @__PURE__ */ React.createElement("div", { className: "p-4 border-b border-[var(--border-soft)] flex justify-between items-center bg-white" }, " ", /* @__PURE__ */ React.createElement("div", { className: "overflow-hidden" }, " ", /* @__PURE__ */ React.createElement("h2", { className: "text-xl font-extrabold text-[var(--text-main)] leading-none truncate" }, item.name), " ", /* @__PURE__ */ React.createElement("div", { className: "text-xs text-[var(--text-soft)] font-semibold mt-1" }, initialLocation, " ", subZoneLabel ? `\xB7 ${subZoneLabel}` : ""), " "), " ", /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "bg-[#F1F4F9] hover:bg-[#E7EBF2] text-[var(--text-main)] h-10 w-10 flex items-center justify-center font-bold text-lg rounded-xl transition-colors" }, "\u2715"), " "), " ", /* @__PURE__ */ React.createElement("div", { className: "flex-1 flex flex-col items-center justify-center relative bg-[var(--bg-body)]" }, " ", /* @__PURE__ */ React.createElement("div", { className: `text-[7rem] font-extrabold leading-none mb-2 select-none ${diffColor}` }, diffSign, sessionDiff), " ", /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-3 mb-8 w-full px-6" }, " ", /* @__PURE__ */ React.createElement("div", { className: "flex-1 rounded-2xl bg-white shadow-sm border border-[var(--border-soft)] p-3 flex flex-col items-center justify-center" }, " ", /* @__PURE__ */ React.createElement("span", { className: "text-[10px] uppercase font-bold text-[var(--text-soft)] tracking-widest mb-1" }, "Actual"), " ", /* @__PURE__ */ React.createElement("span", { className: "text-[var(--text-main)] text-4xl font-extrabold" }, value), " ", scaleAddedValue > 0 && isOpenZone && /* @__PURE__ */ React.createElement("div", { className: "text-xs text-[var(--c-beers-2)] font-bold mt-1" }, " Base: ", startVal, " + ", scaleAddedValue, " "), " "), " ", /* @__PURE__ */ React.createElement("div", { className: "flex-1 rounded-2xl bg-white/60 border border-[var(--border-soft)] p-3 flex flex-col items-center justify-center" }, " ", /* @__PURE__ */ React.createElement("span", { className: "text-[10px] uppercase font-bold text-[var(--text-soft)] tracking-widest mb-1" }, "Anterior"), " ", /* @__PURE__ */ React.createElement("span", { className: "text-[var(--text-soft)] text-4xl font-extrabold" }, historyVal), " "), " "), " ", isMultiCount ? /* @__PURE__ */ React.createElement("div", { className: "w-full px-6 max-w-sm" }, " ", /* @__PURE__ */ React.createElement("div", { className: "text-center text-xs text-[var(--text-soft)] font-bold mb-3 uppercase tracking-widest" }, "Conteo por compartimento"), " ", /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 gap-3 mt-2" }, slots.map((sVal, idx) => /* @__PURE__ */ React.createElement("div", { key: idx, className: "relative" }, /* @__PURE__ */ React.createElement("div", { className: "absolute top-2 left-3 text-[10px] text-[var(--text-soft)] font-bold z-10" }, "S", idx + 1), /* @__PURE__ */ React.createElement("input", { type: "number", className: "w-full bg-white border border-[var(--border-soft)] rounded-2xl px-2 py-4 pt-6 text-[var(--text-main)] font-extrabold text-3xl text-center focus:ring-2 focus:ring-[var(--c-beers-1)] outline-none shadow-sm", value: sVal || "", placeholder: "0", onChange: (e) => handleSlotChange(idx, e.target.value) })))), " ") : /* @__PURE__ */ React.createElement(React.Fragment, null, " ", isOpenZone && /* @__PURE__ */ React.createElement("div", { className: "w-full px-6 max-w-sm mb-6" }, " ", !item.weight_full || !item.weight_empty ? /* @__PURE__ */ React.createElement("button", { onClick: () => onOpenCalibration(item), className: "w-full py-4 bg-amber-50 border border-amber-300 text-amber-700 font-bold text-base rounded-2xl flex items-center justify-center gap-2 hover:bg-amber-100 transition-colors" }, /* @__PURE__ */ React.createElement(Icons.Wrench, { size: 18 }), " Calibrar balanza") : /* @__PURE__ */ React.createElement("div", { className: "flex flex-col gap-2" }, " ", /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-end px-1" }, " ", /* @__PURE__ */ React.createElement("span", { className: "text-xs text-[var(--text-soft)] font-bold uppercase tracking-widest" }, "Balanza digital"), " ", /* @__PURE__ */ React.createElement("button", { onClick: onConnectScale, disabled: isScaleConnected, className: `text-xs font-bold px-3 py-1 rounded-full transition-colors ${isScaleConnected ? "bg-emerald-100 text-emerald-700" : "bg-[#F1F4F9] text-[var(--text-soft)] hover:bg-[#E7EBF2]"}` }, isScaleConnected ? "Conectada" : "Conectar BT"), " "), " ", /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, " ", /* @__PURE__ */ React.createElement("div", { className: "relative w-full" }, " ", /* @__PURE__ */ React.createElement("input", { type: "number", placeholder: "0", className: `w-full bg-white rounded-2xl px-2 py-3 text-[var(--text-main)] font-extrabold text-center text-3xl outline-none placeholder-[#C3CAD8] border shadow-sm ${isScaleConnected ? "border-[var(--c-beers-1)] ring-2 ring-[var(--c-beers-1)]/30" : "border-[var(--border-soft)]"}`, value: manualGrams, onChange: (e) => handleManualInput(e.target.value) }), " ", /* @__PURE__ */ React.createElement("div", { className: "absolute right-4 top-5 text-[var(--text-soft)] font-bold text-sm" }, "g"), " "), " ", value > 0 && scaleAddedValue > 0 && /* @__PURE__ */ React.createElement("button", { onClick: handleAddScaleToTotal, className: "bg-[var(--c-beers-1)]/15 hover:bg-[var(--c-beers-1)]/25 text-[var(--c-beers-2)] rounded-2xl px-4 flex flex-col items-center justify-center min-w-[80px] active:scale-95 transition-all" }, " ", /* @__PURE__ */ React.createElement("span", { className: "text-[10px] font-bold uppercase" }, "Sumar"), " ", /* @__PURE__ */ React.createElement("span", { className: "text-xl font-extrabold" }, "+", scaleAddedValue), " "), " "), " "), " "), " ", /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 gap-3 w-full px-6 max-w-sm mb-4" }, " ", /* @__PURE__ */ React.createElement("div", { className: "flex flex-col gap-2 items-end" }, " ", isCaseZone && /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(-24), className: "w-full h-11 bg-white hover:bg-rose-50 text-rose-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "- Caja"), " ", isSmallGroup ? /* @__PURE__ */ React.createElement(React.Fragment, null, " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(-12), className: "w-full h-11 bg-white hover:bg-rose-50 text-rose-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "- 12"), " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(-6), className: "w-full h-11 bg-white hover:bg-rose-50 text-rose-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "- 6"), " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(-3), className: "w-full h-11 bg-white hover:bg-rose-50 text-rose-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "- 3"), " ") : /* @__PURE__ */ React.createElement(React.Fragment, null, " ", !isOpenZone && /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(-24), className: "w-full h-11 bg-white hover:bg-rose-50 text-rose-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "- 24"), " ", !isOpenZone && /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(-12), className: "w-full h-11 bg-white hover:bg-rose-50 text-rose-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "- 12"), " ", !isOpenZone && /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(-6), className: "w-full h-11 bg-white hover:bg-rose-50 text-rose-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "- 6"), " "), " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(-1), className: "w-full h-14 bg-rose-500 hover:bg-rose-600 text-white rounded-2xl font-extrabold text-2xl active:scale-95 shadow-lg shadow-rose-500/30 transition-all" }, "\u22121"), " "), " ", /* @__PURE__ */ React.createElement("div", { className: "flex flex-col gap-2 items-start" }, " ", isCaseZone && /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(24), className: "w-full h-11 bg-white hover:bg-emerald-50 text-emerald-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "+ Caja"), " ", isSmallGroup ? /* @__PURE__ */ React.createElement(React.Fragment, null, " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(12), className: "w-full h-11 bg-white hover:bg-emerald-50 text-emerald-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "+ 12"), " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(6), className: "w-full h-11 bg-white hover:bg-emerald-50 text-emerald-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "+ 6"), " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(3), className: "w-full h-11 bg-white hover:bg-emerald-50 text-emerald-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "+ 3"), " ") : /* @__PURE__ */ React.createElement(React.Fragment, null, " ", !isOpenZone && /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(24), className: "w-full h-11 bg-white hover:bg-emerald-50 text-emerald-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "+ 24"), " ", !isOpenZone && /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(12), className: "w-full h-11 bg-white hover:bg-emerald-50 text-emerald-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "+ 12"), " ", !isOpenZone && /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(6), className: "w-full h-11 bg-white hover:bg-emerald-50 text-emerald-600 border border-[var(--border-soft)] rounded-xl font-bold text-sm shadow-sm active:scale-95 transition-all" }, "+ 6"), " "), " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(1), className: "w-full h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-2xl font-extrabold text-2xl active:scale-95 shadow-lg shadow-emerald-500/30 transition-all" }, "+1"), " "), " "), " ", isOpenZone && /* @__PURE__ */ React.createElement("div", { className: "grid grid-cols-2 gap-3 w-full px-6 max-w-sm relative z-10" }, " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(-0.1), className: "bg-white hover:bg-rose-50 text-rose-500 h-11 rounded-xl border border-[var(--border-soft)] font-bold text-sm shadow-sm active:scale-95 transition-all" }, "- 0.1"), " ", /* @__PURE__ */ React.createElement("button", { onClick: () => handleDelta(0.1), className: "bg-white hover:bg-emerald-50 text-emerald-500 h-11 rounded-xl border border-[var(--border-soft)] font-bold text-sm shadow-sm active:scale-95 transition-all" }, "+ 0.1"), " "), " "), " "), " ", /* @__PURE__ */ React.createElement("button", { onClick: onContinue, className: "m-4 bg-gradient-to-r from-[var(--c-beers-1)] to-[var(--c-beers-2)] hover:opacity-95 text-white font-extrabold text-lg h-14 rounded-2xl shadow-lg shadow-blue-500/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2" }, "Listo"), " "), " ");
+};
+function App() {
+  var _a;
+  const [auth, setAuth] = useState(false);
+  const [data, setData] = useState([]);
+  const [loc, setLoc] = useState("bar1");
+  const [subZone, setSubZone] = useState(null);
+  const [scanning, setScanning] = useState(false);
+  const [editItem, setEditItem] = useState(null);
+  const [showLoc, setShowLoc] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [showCheck, setShowCheck] = useState(false);
+  const [showPremium, setShowPremium] = useState(false);
+  const [showPurchases, setShowPurchases] = useState(false);
+  const [search, setSearch] = useState("");
+  const [status, setStatus] = useState("Connecting...");
+  const [pendingBarcode, setPendingBarcode] = useState(null);
+  const [calibratingItem, setCalibratingItem] = useState(null);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [scaleWeight, setScaleWeight] = useState("");
+  const [isScaleConnected, setIsScaleConnected] = useState(false);
+  const [expandedCats, setExpandedCats] = useState({});
+  const toggleCategory = (catName) => {
+    setExpandedCats((prev) => __spreadProps(__spreadValues({}, prev), { [catName]: !prev[catName] }));
+  };
+  useEffect(() => {
+    const handleStatus = () => setIsOnline(navigator.onLine);
+    window.addEventListener("online", handleStatus);
+    window.addEventListener("offline", handleStatus);
+    return () => {
+      window.removeEventListener("online", handleStatus);
+      window.removeEventListener("offline", handleStatus);
+    };
+  }, []);
+  useEffect(() => {
+    let cancelled = false;
+    const start = Date.now();
+    const tryInit = () => {
+      if (cancelled) return;
+      if (!window.fb) {
+        if (Date.now() - start > 5e3) {
+          setStatus("OFFLINE");
+          return;
+        }
+        setTimeout(tryInit, 100);
+        return;
+      }
+      try {
+        const app = window.fb.initializeApp(FIREBASE_CONFIG);
+        const auth2 = window.fb.getAuth(app);
+        const db = window.fb.getFirestore(app);
+        window.fb.signInAnonymously(auth2).catch((e) => {
+          console.warn(e);
+          setStatus("OFFLINE");
+        });
+        window.fb.onAuthStateChanged(auth2, (u) => {
+          if (u) {
+            setStatus("ONLINE");
+            const path = typeof __app_id !== "undefined" ? `artifacts/${__app_id}/public/data/inventory` : "inventory";
+            window.fb.onSnapshot(window.fb.doc(db, path, "master"), (s) => {
+              if (s.exists()) setData(s.data().items);
+            }, (err) => {
+              console.warn(err);
+              setStatus("OFFLINE");
+            });
+          } else setStatus("OFFLINE");
+        });
+      } catch (e) {
+        console.warn(e);
+        setStatus("OFFLINE");
+      }
+    };
+    tryInit();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+  const handleConnectScale = async () => {
+    try {
+      const device = await navigator.bluetooth.requestDevice({ filters: [{ namePrefix: "Etekcity" }], optionalServices: [65520] });
+      const server = await device.gatt.connect();
+      const service = await server.getPrimaryService(65520);
+      const characteristic = await service.getCharacteristic(65521);
+      await characteristic.startNotifications();
+      setIsScaleConnected(true);
+      playSound("connect");
+      characteristic.addEventListener("characteristicvaluechanged", (event) => {
+        const value = event.target.value;
+        if (value.byteLength < 12) return;
+        const weightRaw = value.getUint16(11, true);
+        const finalWeight = (weightRaw / 10).toFixed(1);
+        setScaleWeight(finalWeight);
+      });
+      device.addEventListener("gattserverdisconnected", () => {
+        setIsScaleConnected(false);
+        playSound("error");
+      });
+    } catch (error) {
+      console.error("Scale Error:", error);
+      alert("Bluetooth Error: " + error.message);
+      setIsScaleConnected(false);
+    }
+  };
+  const handleUpdate = (id, fieldOrObj, val) => {
+    const timestamp = Date.now();
+    const newData = data.map((cat) => __spreadProps(__spreadValues({}, cat), { items: cat.items.map((i) => {
+      if (i.id === id) {
+        if (typeof fieldOrObj === "object") return __spreadProps(__spreadValues(__spreadValues({}, i), fieldOrObj), { last_updated: timestamp });
+        return __spreadProps(__spreadValues({}, i), { [fieldOrObj]: val, last_updated: timestamp });
+      }
+      return i;
+    }) }));
+    setData(newData);
+    if (window.fb) {
+      try {
+        const db = window.fb.getFirestore();
+        const path = typeof __app_id !== "undefined" ? `artifacts/${__app_id}/public/data/inventory` : "inventory";
+        window.fb.setDoc(window.fb.doc(db, path, "master"), { items: newData }).catch(console.error);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+  };
+  const handleLocalReset = () => {
+    if (!confirm("\u26A0 RESET DATA?\n\nZero out all counts?")) return;
+    const resetData = data.map((cat) => __spreadProps(__spreadValues({}, cat), { items: cat.items.map((i) => {
+      const resetItem = __spreadValues({}, i);
+      Object.values(ZONES_CONFIG).forEach((zoneArr) => {
+        zoneArr.forEach((z) => {
+          resetItem[`last_${z.id}`] = parseFloat(i[z.id]) || 0;
+          resetItem[z.id] = 0;
+        });
+      });
+      ["bar1", "bar2", "bodega", "barroluco", "purchases"].forEach((k) => {
+        resetItem[`last_${k}`] = parseFloat(i[k]) || 0;
+        resetItem[k] = 0;
+      });
+      return resetItem;
+    }) }));
+    setData(resetData);
+    if (window.fb) {
+      try {
+        const db = window.fb.getFirestore();
+        const path = typeof __app_id !== "undefined" ? `artifacts/${__app_id}/public/data/inventory` : "inventory";
+        window.fb.setDoc(window.fb.doc(db, path, "master"), { items: resetData }).catch(console.error);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+    playSound("sub");
+    setShowMenu(false);
+  };
+  const handleBackup = () => {
+    const blob = new Blob([JSON.stringify(data)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `Scanner_Backup_${(/* @__PURE__ */ new Date()).toLocaleDateString().replace(/\//g, "-")}.json`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  const handleScan = (txt) => {
+    let found = null;
+    for (const c of data) {
+      const m = c.items.find((i) => i.barcode && i.barcode.includes(txt) || i.barcode_case && i.barcode_case === txt);
+      if (m) {
+        found = m;
+        break;
+      }
+    }
+    if (found) {
+      setEditItem(found);
+      setScanning(false);
+      playSound("success");
+    } else {
+      playSound("error");
+      setPendingBarcode(txt);
+      setScanning(false);
+    }
+  };
+  const handleLinkBarcode = (item) => {
+    const currentCodes = item.barcode ? item.barcode : "";
+    const newCodes = currentCodes ? `${currentCodes},${pendingBarcode}` : pendingBarcode;
+    handleUpdate(item.id, "barcode", newCodes);
+    setPendingBarcode(null);
+    setEditItem(item);
+    playSound("success");
+  };
+  const updateItemStickers = (itemId, newStickersArray) => handleUpdate(itemId, "sticker_ids", newStickersArray);
+  const saveBottleWeights = (itemId, full, empty) => {
+    handleUpdate(itemId, { weight_full: full, weight_empty: empty });
+    setCalibratingItem(null);
+    playSound("success");
+  };
+  const filteredData = useMemo(() => {
+    const term = search.toLowerCase();
+    return data.map((c) => __spreadProps(__spreadValues({}, c), { items: c.items.filter((i) => i.name.toLowerCase().includes(term)) })).filter((c) => c.items.length > 0);
+  }, [data, search]);
+  const getCatColorClass = (catName) => {
+    const lower = catName.toLowerCase();
+    if (lower.includes("premium")) return "bg-premium";
+    if (lower.includes("wells")) return "bg-wells";
+    if (lower.includes("seltzer")) return "bg-seltzer";
+    if (lower.includes("beer")) return "bg-beers";
+    if (lower.includes("wine")) return "bg-wines";
+    if (lower.includes("non")) return "bg-nonalc";
+    return "bg-gray-800";
+  };
+  if (!auth) return /* @__PURE__ */ React.createElement(LoginScreen, { onLogin: () => setAuth(true) });
+  return /* @__PURE__ */ React.createElement("div", { className: "pb-40 relative min-h-screen" }, /* @__PURE__ */ React.createElement("div", { className: "sticky-header-industrial" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-start p-4" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { className: "text-2xl text-[var(--text-main)] font-extrabold leading-none" }, "Scanner Pro"), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2 mt-2" }, /* @__PURE__ */ React.createElement("div", { className: `w-2 h-2 rounded-full ${isOnline ? "bg-emerald-500" : "bg-rose-400"}` }), /* @__PURE__ */ React.createElement("span", { className: "text-xs text-[var(--text-soft)] font-semibold tracking-wide" }, isOnline ? "En l\xEDnea" : "Sin conexi\xF3n"))), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setShowCheck(true), className: "bg-white border border-[var(--border-soft)] text-[var(--text-main)] p-2.5 rounded-xl shadow-sm hover:bg-[#F1F4F9] transition-colors" }, /* @__PURE__ */ React.createElement(Icons.List, { className: "h-5 w-5" })), /* @__PURE__ */ React.createElement("button", { onClick: () => setShowMenu(!showMenu), className: "bg-white border border-[var(--border-soft)] text-[var(--text-main)] p-2.5 rounded-xl shadow-sm hover:bg-[#F1F4F9] transition-colors" }, /* @__PURE__ */ React.createElement(Icons.Settings, { className: "h-5 w-5" })))), /* @__PURE__ */ React.createElement("div", { className: "px-4 pb-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setShowLoc(true), className: "w-full modal-industrial p-4 group active:scale-[0.99] transition-transform relative shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "text-[10px] text-[var(--text-soft)] uppercase font-bold tracking-[0.15em] mb-1 text-left" }, "Zona actual"), /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-[var(--text-main)] font-extrabold text-2xl leading-none" }, ZONES_CONFIG[loc] ? ((_a = ZONES_CONFIG[loc].find((z) => z.id === subZone)) == null ? void 0 : _a.label) || "Elegir zona" : loc === "purchases" ? "Compras" : loc === "barroluco" ? "Barroluco" : "\xC1rea principal"), /* @__PURE__ */ React.createElement(Icons.ChevronDown, { className: "text-[var(--text-soft)] w-6 h-6" })))), /* @__PURE__ */ React.createElement("div", { className: "px-4 pb-4" }, /* @__PURE__ */ React.createElement("div", { className: "relative" }, /* @__PURE__ */ React.createElement("input", { type: "text", placeholder: "Buscar producto...", className: "w-full search-industrial py-3 px-4 pr-11 text-base font-medium placeholder-[#A7B0C0] focus:outline-none focus:ring-2 focus:ring-[var(--c-beers-1)] transition-all", value: search, onChange: (e) => setSearch(e.target.value) }), /* @__PURE__ */ React.createElement(Icons.Search, { className: "absolute right-4 top-3.5 text-[var(--text-soft)] w-5 h-5 pointer-events-none" })))), showMenu && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "menu-backdrop", onClick: () => setShowMenu(false) }), /* @__PURE__ */ React.createElement("div", { className: "absolute top-24 right-4 bg-white border border-[var(--border-soft)] rounded-2xl p-2 z-50 flex flex-col gap-1 w-64 shadow-xl" }, /* @__PURE__ */ React.createElement("button", { onClick: () => {
+    setShowPurchases(true);
+    setShowMenu(false);
+  }, className: "flex items-center gap-3 p-3 rounded-xl hover:bg-[#F1F4F9] text-[var(--text-main)] font-semibold transition-colors" }, /* @__PURE__ */ React.createElement(Icons.Package, { className: "text-[var(--c-wells-2)]", size: 18 }), " Registro de ingresos"), /* @__PURE__ */ React.createElement("button", { onClick: () => {
+    setShowPremium(true);
+    setShowMenu(false);
+  }, className: "flex items-center gap-3 p-3 rounded-xl hover:bg-[#F1F4F9] text-[var(--text-main)] font-semibold transition-colors" }, /* @__PURE__ */ React.createElement(Icons.Star, { className: "text-[var(--c-premium-2)]", size: 18 }), " Control de botellas"), /* @__PURE__ */ React.createElement("button", { onClick: () => {
+    handleBackup();
+    setShowMenu(false);
+  }, className: "flex items-center gap-3 p-3 rounded-xl hover:bg-[#F1F4F9] text-[var(--text-main)] font-semibold transition-colors" }, /* @__PURE__ */ React.createElement(Icons.Save, { className: "text-[var(--c-beers-2)]", size: 18 }), " Hacer copia de seguridad"), /* @__PURE__ */ React.createElement("div", { className: "h-px bg-[var(--border-soft)] my-1" }), /* @__PURE__ */ React.createElement("button", { onClick: handleLocalReset, className: "flex items-center gap-3 p-3 rounded-xl hover:bg-rose-50 text-rose-600 font-semibold transition-colors" }, /* @__PURE__ */ React.createElement(Icons.Refresh, { size: 18 }), " Reiniciar todo"))), /* @__PURE__ */ React.createElement("div", { className: "px-4 pt-4 space-y-3" }, filteredData.map((cat) => {
+    const isExpanded = search.length > 0 || expandedCats[cat.category];
+    const catColorClass = getCatColorClass(cat.category);
+    return /* @__PURE__ */ React.createElement("div", { key: cat.category, className: "mb-1" }, /* @__PURE__ */ React.createElement("button", { onClick: () => toggleCategory(cat.category), className: `cat-block ${catColorClass} hover:brightness-105 active:scale-[0.99] transition-all` }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center w-full" }, /* @__PURE__ */ React.createElement("span", null, cat.category), /* @__PURE__ */ React.createElement("span", { className: `transition-transform ${isExpanded ? "rotate-180" : ""}` }, /* @__PURE__ */ React.createElement(Icons.ChevronDown, { className: "w-5 h-5" }))), cat.category.toLowerCase().includes("premium") && /* @__PURE__ */ React.createElement("div", { className: "cat-sub" }, "TEQUILA / WHISKY")), isExpanded && /* @__PURE__ */ React.createElement("div", { className: `rounded-2xl mt-1.5 p-2 space-y-1.5 ${catColorClass}` }, cat.items.map((item) => {
+      const qty = parseFloat(item[subZone || loc]) || 0;
+      const hasQty = qty > 0;
+      return /* @__PURE__ */ React.createElement("div", { key: item.id, onClick: () => setEditItem(item), className: `p-3.5 rounded-xl flex justify-between items-center cursor-pointer transition-all ${hasQty ? "bg-white/95" : "bg-white/10 hover:bg-white/20"}` }, /* @__PURE__ */ React.createElement("div", { className: `font-semibold text-sm ${hasQty ? "text-[var(--text-main)]" : "text-white"}` }, item.name), hasQty && /* @__PURE__ */ React.createElement("div", { className: "bg-[var(--text-main)] text-white font-bold font-mono text-sm px-2.5 py-1 rounded-lg" }, qty));
+    })));
+  })), /* @__PURE__ */ React.createElement("button", { onClick: () => setScanning(true), className: "fixed bottom-8 left-1/2 -translate-x-1/2 h-16 w-16 bg-gradient-to-br from-[var(--c-beers-1)] to-[var(--c-beers-2)] text-white rounded-full shadow-[0_12px_28px_-8px_rgba(37,99,235,0.55)] flex items-center justify-center z-30 active:scale-90 transition-transform" }, /* @__PURE__ */ React.createElement(Icons.Scan, { className: "w-7 h-7" })), pendingBarcode && /* @__PURE__ */ React.createElement(LinkModal, { barcode: pendingBarcode, data, onLink: handleLinkBarcode, onClose: () => {
+    setPendingBarcode(null);
+    setTimeout(() => setScanning(true), 300);
+  } }), showPremium && /* @__PURE__ */ React.createElement(PremiumControlModal, { onClose: () => setShowPremium(false), data, onUpdateStickers: updateItemStickers }), showPurchases && /* @__PURE__ */ React.createElement(PurchasesLogModal, { onClose: () => setShowPurchases(false), data }), showCheck && /* @__PURE__ */ React.createElement(ReviewModal, { onClose: () => setShowCheck(false), data, onUpdate: handleUpdate }), showLoc && /* @__PURE__ */ React.createElement(LocationModal, { onClose: () => setShowLoc(false), onSelect: (l, s) => {
+    setLoc(l);
+    setSubZone(s);
+    setShowLoc(false);
+  } }), scanning && /* @__PURE__ */ React.createElement(ScannerModal, { onScan: handleScan, onClose: () => setScanning(false) }), calibratingItem && /* @__PURE__ */ React.createElement(BottleCalibrationModal, { item: calibratingItem, onClose: () => setCalibratingItem(null), onSave: saveBottleWeights }), editItem && /* @__PURE__ */ React.createElement(QuickEditModal, { item: editItem, initialLocation: loc, initialSubZone: subZone, onClose: () => setEditItem(null), onOpenCalibration: setCalibratingItem, onContinue: () => {
+    setEditItem(null);
+    setTimeout(() => setScanning(true), 300);
+  }, onUpdate: handleUpdate, scaleWeight, isScaleConnected, onConnectScale: handleConnectScale }));
+}
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(/* @__PURE__ */ React.createElement(ErrorBoundary, null, /* @__PURE__ */ React.createElement(App, null)));
+
+</script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js').catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
