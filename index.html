@@ -506,7 +506,7 @@ const QuickEditModal = ({ item, onClose, onContinue, onUpdate, initialLocation, 
   const targetField = zones.length > 0 ? subZoneId : initialLocation;
   const historyKey = `last_${targetField}`;
   const historyVal = item[historyKey] !== void 0 ? item[historyKey] : "-";
-  const isOpenZone = ["bar1_shelf_open", "bar1_well_1", "bar1_well_2", "bar2_small_cooler"].includes(initialSubZone) || initialLocation === "barroluco";
+  const isOpenZone = ["bar1_shelf_open", "bar1_well_1", "bar1_well_2", "bar2_cooler", "bar2_small_cooler"].includes(initialSubZone) || initialLocation === "barroluco";
   const isCaseZone = ["bar1_reaching", "bar1_shelf_full", "bodega_shelves"].includes(initialSubZone) || initialLocation === "purchases";
   const isMultiCount = subZoneId === "bar1_cooler" && (item.name.toLowerCase().includes("corona") || item.name.toLowerCase().includes("modelo"));
   const isSmallGroup = !isOpenZone && !isMultiCount;
