@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Scanner Pro</title>
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2563EB">
+    <meta name="theme-color" content="#1A110B">
     <link rel="icon" href="icon-192.png">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -35,9 +35,11 @@
             --c-premium-1: #FBBF24; --c-premium-2: #D97706;
             --c-wells-1: #2DD4BF;   --c-wells-2: #0D9488;
             --c-seltzer-1: #38BDF8; --c-seltzer-2: #0284C7;
-            --c-beers-1: #60A5FA;   --c-beers-2: #2563EB;
+            --c-beers-1: #4F7DF5;   --c-beers-2: #0B3FAE;
             --c-wines-1: #A78BFA;   --c-wines-2: #7C3AED;
             --c-nonalc-1: #94A3B8;  --c-nonalc-2: #475569;
+            --rb-yellow: #FFC906;
+            --rb-red: #E4002B;
         }
 
         body {
@@ -109,14 +111,202 @@
         .cat-card-wines    { background: #F3E4F5; } .cat-icon-wines    { background: #C77CDB; }
         .cat-card-nonalc   { background: #ECEEF1; } .cat-icon-nonalc   { background: #9AA4B2; }
 
-        .zone-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; color: var(--c-wells-2); text-transform: uppercase; }
+        .zone-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em; color: var(--c-beers-2); text-transform: uppercase; }
         .header-illustration {
             margin: 0 1rem 1rem 1rem; border-radius: 1.5rem; padding: 1.5rem 1rem;
             background: linear-gradient(135deg, #E9F7F1 0%, #EAF3FB 60%, #F3ECFB 100%);
             display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 2.6rem;
         }
         .icon-btn-round { background: white; border: 1px solid var(--border-soft); border-radius: 1rem; width: 2.75rem; height: 2.75rem; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px -3px rgba(30,36,51,0.15); }
-        .scan-fab-teal { background: #14B8A6; box-shadow: 0 10px 24px -8px rgba(20,184,166,0.6); }
+        .scan-fab-teal { background: linear-gradient(135deg, var(--c-beers-1), var(--c-beers-2)); box-shadow: 0 0 0 4px var(--rb-yellow), 0 10px 24px -8px rgba(11,63,174,0.55); }
+    </style>
+    <style>
+        /* ===== TEMA WHISKEY (madera oscura + ambar) ===== */
+        :root {
+            color-scheme: dark;
+            --bg-body: #1A110B;
+            --text-main: #F4E8D8;
+            --text-soft: #A88E76;
+            --card: rgba(46,31,21,0.72);
+            --card-solid: #261911;
+            --border-soft: rgba(255,214,170,0.13);
+            --c-premium-1: #E9A963; --c-premium-2: #A8612B;
+            --c-wells-1: #CF9466;   --c-wells-2: #7E4A2B;
+            --c-seltzer-1: #B5B06E; --c-seltzer-2: #6A6A35;
+            --c-beers-1: #EDB878;   --c-beers-2: #A46A30;
+            --c-wines-1: #C4707A;   --c-wines-2: #6E2A35;
+            --c-nonalc-1: #9C8A7B;  --c-nonalc-2: #54463B;
+            --rb-yellow: #E5A15C;
+        }
+        html { background: #1A110B; }
+        body {
+            background-color: #1A110B !important;
+            background-image:
+                radial-gradient(ellipse at 50% -10%, rgba(233,169,99,0.10) 0%, transparent 55%),
+                linear-gradient(180deg, rgba(10,6,3,0.15) 0%, rgba(10,6,3,0.55) 100%),
+                url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='900'><filter id='w'><feTurbulence type='fractalNoise' baseFrequency='0.09 0.0035' numOctaves='3' seed='7'/><feColorMatrix values='0 0 0 0 0.36  0 0 0 0 0.22  0 0 0 0 0.13  0 0 0 0.9 0'/></filter><rect width='100%' height='100%' fill='%23221510'/><rect width='100%' height='100%' filter='url(%23w)' opacity='0.55'/></svg>") !important;
+            background-size: auto, auto, 600px 900px !important;
+            background-attachment: fixed !important;
+            color: var(--text-main);
+        }
+
+        /* Glass cards */
+        .bg-white, .modal-industrial, .icon-btn-round {
+            background-color: var(--card) !important;
+            -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+        }
+        .bg-white, .modal-industrial { border-color: var(--border-soft); }
+        .absolute.bg-white, .absolute.bg-white\/95, .absolute.bg-white\/90 { background-color: #241811 !important; box-shadow: 0 20px 40px -12px rgba(0,0,0,0.85) !important; }
+        .bg-amber-500, .bg-amber-600 { background: linear-gradient(160deg, #F4C58D 0%, #D38B48 55%, #A8612B 100%) !important; color: #1F140C !important; }
+        .hover\:bg-amber-600:hover { background: #C47A3E !important; }
+        .fixed.inset-0.bg-white, .fixed.inset-0.bg-\[\#F1F4F9\], .fixed.inset-0.bg-slate-50 { background-color: #1C130D !important; }
+        .modal-industrial { box-shadow: 0 18px 40px -18px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,220,180,0.06); }
+        .icon-btn-round { border-color: var(--border-soft) !important; color: var(--text-main) !important; box-shadow: none !important; }
+        .bg-white\/95, .bg-white\/90, .backdrop-blur-xl, .sticky-header-industrial {
+            background-color: rgba(28,18,12,0.88) !important;
+            -webkit-backdrop-filter: blur(14px) !important; backdrop-filter: blur(14px) !important;
+        }
+        .sticky-header-industrial { border-bottom: 1px solid var(--border-soft) !important; box-shadow: 0 10px 24px -14px rgba(0,0,0,0.8) !important; }
+        .bg-white\/40, .bg-white\/60 { background-color: rgba(255,230,200,0.07) !important; }
+        .hover\:bg-white\/70:hover { background-color: rgba(255,230,200,0.12) !important; }
+        .bg-\[\#F1F4F9\], .search-industrial, .bg-slate-50, .bg-slate-100 { background-color: rgba(255,230,200,0.06) !important; }
+        .hover\:bg-\[\#F1F4F9\]:hover, .hover\:bg-\[\#F8FAFD\]:hover { background-color: rgba(255,230,200,0.10) !important; }
+        .hover\:bg-\[\#E7EBF2\]:hover, .hover\:bg-\[var\(--border-soft\)\]:hover { background-color: rgba(255,230,200,0.14) !important; }
+        .bg-slate-200, .bg-slate-300, .bg-\[var\(--border-soft\)\] { background-color: rgba(255,230,200,0.12) !important; }
+        .bg-slate-800, .bg-slate-900, .bg-gray-800, .bg-\[var\(--text-main\)\] { background-color: #3A2618 !important; color: #F4E8D8 !important; border-color: rgba(233,169,99,0.35) !important; }
+        .bg-\[var\(--text-main\)\]\/40, .menu-backdrop { background-color: rgba(8,5,3,0.65) !important; }
+        .bg-\[var\(--bg-body\)\]\/95 { background-color: rgba(26,17,11,0.95) !important; }
+        .bg-\[var\(--bg-body\)\]\/50 { background-color: rgba(26,17,11,0.5) !important; }
+
+        /* Text */
+        .text-black, .text-slate-900, .text-slate-800, .text-slate-700 { color: var(--text-main) !important; }
+        .text-slate-600, .text-slate-500 { color: #BFA48A !important; }
+        .text-slate-400, .text-slate-300 { color: #8C735E !important; }
+        .text-\[var\(--border-soft\)\] { color: rgba(255,214,170,0.25) !important; }
+        .border-slate-100, .border-slate-200, .border-slate-300 { border-color: var(--border-soft) !important; }
+        .text-\[var\(--c-premium-2\)\], .text-\[var\(--c-premium-2\)\]\/70, .zone-label { color: var(--c-premium-1) !important; }
+        .text-\[var\(--c-beers-2\)\], .text-\[var\(--c-beers-2\)\]\/70, .hover\:text-\[var\(--c-beers-2\)\]:hover { color: var(--c-beers-1) !important; }
+        .text-\[var\(--c-wines-2\)\] { color: var(--c-wines-1) !important; }
+        .text-\[var\(--c-wells-2\)\] { color: var(--c-wells-1) !important; }
+
+        /* Accent gradient (like the bars) */
+        .bg-\[var\(--c-beers-1\)\], .bg-\[var\(--c-beers-2\)\], .bg-\[var\(--c-premium-1\)\], .scan-fab-teal,
+        .from-\[var\(--c-beers-1\)\], .from-orange-400 {
+            background: linear-gradient(160deg, #F4C58D 0%, #D38B48 55%, #A8612B 100%) !important;
+        }
+        .bg-\[var\(--c-beers-1\)\], .bg-\[var\(--c-beers-2\)\], .bg-\[var\(--c-premium-1\)\] { color: #1F140C !important; }
+        .bg-\[var\(--c-beers-1\)\] svg, .bg-\[var\(--c-beers-2\)\] svg { color: #1F140C; }
+        .bg-\[var\(--c-beers-1\)\]\/15 { background-color: rgba(233,169,99,0.15) !important; }
+        .scan-fab-teal { box-shadow: 0 0 0 4px rgba(233,169,99,0.35), 0 12px 28px -8px rgba(168,97,43,0.7) !important; }
+        .shadow-\[0_0_50px_rgba\(37\,99\,235\,0\.25\)\] { box-shadow: 0 0 50px rgba(233,169,99,0.22) !important; }
+        #reader { border-color: #E5A15C !important; }
+
+        /* Category headers & cards: warm, glassy */
+        .bg-premium, .bg-wells, .bg-seltzer, .bg-beers, .bg-wines, .bg-nonalc {
+            box-shadow: inset 0 1px 0 rgba(255,235,210,0.25), 0 10px 24px -14px rgba(0,0,0,0.8) !important;
+            border: 1px solid rgba(255,214,170,0.15);
+        }
+        .cat-card-premium, .cat-card-wells, .cat-card-seltzer, .cat-card-beers, .cat-card-wines, .cat-card-nonalc {
+            background: var(--card) !important; border: 1px solid var(--border-soft);
+            -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+        }
+        .cat-icon-premium { background: linear-gradient(135deg, var(--c-premium-1), var(--c-premium-2)) !important; }
+        .cat-icon-wells   { background: linear-gradient(135deg, var(--c-wells-1), var(--c-wells-2)) !important; }
+        .cat-icon-seltzer { background: linear-gradient(135deg, var(--c-seltzer-1), var(--c-seltzer-2)) !important; }
+        .cat-icon-beers   { background: linear-gradient(135deg, var(--c-beers-1), var(--c-beers-2)) !important; }
+        .cat-icon-wines   { background: linear-gradient(135deg, var(--c-wines-1), var(--c-wines-2)) !important; }
+        .cat-icon-nonalc  { background: linear-gradient(135deg, var(--c-nonalc-1), var(--c-nonalc-2)) !important; }
+        .header-illustration { background: linear-gradient(135deg, rgba(233,169,99,0.12), rgba(168,97,43,0.06)) !important; }
+
+        /* Inputs */
+        input, select, textarea {
+            background-color: rgba(255,230,200,0.06) !important;
+            border-color: var(--border-soft) !important;
+            color: var(--text-main) !important;
+        }
+        input:focus, select:focus, textarea:focus {
+            background-color: rgba(255,230,200,0.09) !important;
+            border-color: #E5A15C !important;
+            outline: 2px solid rgba(229,161,92,0.25) !important;
+        }
+        input::placeholder, textarea::placeholder, .search-industrial::placeholder { color: #7E6754 !important; }
+        option { background: #261911; color: #F4E8D8; }
+        input[type="checkbox"], input[type="radio"] { accent-color: #E5A15C; }
+        ::-webkit-scrollbar-track { background: #1A110B !important; }
+        ::-webkit-scrollbar-thumb { background: #4A3324 !important; }
+        ::-webkit-scrollbar-thumb:hover { background: #6B4A33 !important; }
+
+        /* Status colours readable on dark */
+        .bg-amber-50{background-color:rgba(245,158,11,.10)!important} .bg-amber-100{background-color:rgba(245,158,11,.16)!important} .bg-amber-50\/50{background-color:rgba(245,158,11,.07)!important}
+        .hover\:bg-amber-50:hover{background-color:rgba(245,158,11,.15)!important} .hover\:bg-amber-100:hover{background-color:rgba(245,158,11,.22)!important}
+        .border-amber-100{border-color:rgba(245,158,11,.2)!important} .border-amber-200{border-color:rgba(245,158,11,.3)!important} .border-amber-300{border-color:rgba(245,158,11,.42)!important}
+        .hover\:border-amber-200:hover{border-color:rgba(245,158,11,.35)!important} .hover\:border-amber-300:hover{border-color:rgba(245,158,11,.5)!important}
+        .text-amber-700,.text-amber-800,.text-amber-900,.hover\:text-amber-700:hover{color:#FCD34D!important} .text-amber-600,.hover\:text-amber-600:hover,.group:hover .group-hover\:text-amber-600{color:#FBBF24!important}
+        .text-amber-600\/70,.text-amber-700\/70{color:#FBBF24!important;opacity:.75}
+        .bg-blue-50{background-color:rgba(229,161,92,.10)!important} .bg-blue-100{background-color:rgba(229,161,92,.16)!important} .bg-blue-50\/50{background-color:rgba(229,161,92,.07)!important}
+        .hover\:bg-blue-50:hover{background-color:rgba(229,161,92,.15)!important} .hover\:bg-blue-100:hover{background-color:rgba(229,161,92,.22)!important}
+        .border-blue-100{border-color:rgba(229,161,92,.2)!important} .border-blue-200{border-color:rgba(229,161,92,.3)!important} .border-blue-300{border-color:rgba(229,161,92,.42)!important}
+        .hover\:border-blue-200:hover{border-color:rgba(229,161,92,.35)!important} .hover\:border-blue-300:hover{border-color:rgba(229,161,92,.5)!important}
+        .text-blue-700,.text-blue-800,.text-blue-900,.hover\:text-blue-700:hover{color:#F2BE84!important} .text-blue-600,.hover\:text-blue-600:hover,.group:hover .group-hover\:text-blue-600{color:#EBAE6E!important}
+        .text-blue-600\/70,.text-blue-700\/70{color:#EBAE6E!important;opacity:.75}
+        .bg-indigo-50{background-color:rgba(229,161,92,.10)!important} .bg-indigo-100{background-color:rgba(229,161,92,.16)!important} .bg-indigo-50\/50{background-color:rgba(229,161,92,.07)!important}
+        .hover\:bg-indigo-50:hover{background-color:rgba(229,161,92,.15)!important} .hover\:bg-indigo-100:hover{background-color:rgba(229,161,92,.22)!important}
+        .border-indigo-100{border-color:rgba(229,161,92,.2)!important} .border-indigo-200{border-color:rgba(229,161,92,.3)!important} .border-indigo-300{border-color:rgba(229,161,92,.42)!important}
+        .hover\:border-indigo-200:hover{border-color:rgba(229,161,92,.35)!important} .hover\:border-indigo-300:hover{border-color:rgba(229,161,92,.5)!important}
+        .text-indigo-700,.text-indigo-800,.text-indigo-900,.hover\:text-indigo-700:hover{color:#F2BE84!important} .text-indigo-600,.hover\:text-indigo-600:hover,.group:hover .group-hover\:text-indigo-600{color:#EBAE6E!important}
+        .text-indigo-600\/70,.text-indigo-700\/70{color:#EBAE6E!important;opacity:.75}
+        .bg-cyan-50{background-color:rgba(6,182,212,.10)!important} .bg-cyan-100{background-color:rgba(6,182,212,.16)!important} .bg-cyan-50\/50{background-color:rgba(6,182,212,.07)!important}
+        .hover\:bg-cyan-50:hover{background-color:rgba(6,182,212,.15)!important} .hover\:bg-cyan-100:hover{background-color:rgba(6,182,212,.22)!important}
+        .border-cyan-100{border-color:rgba(6,182,212,.2)!important} .border-cyan-200{border-color:rgba(6,182,212,.3)!important} .border-cyan-300{border-color:rgba(6,182,212,.42)!important}
+        .hover\:border-cyan-200:hover{border-color:rgba(6,182,212,.35)!important} .hover\:border-cyan-300:hover{border-color:rgba(6,182,212,.5)!important}
+        .text-cyan-700,.text-cyan-800,.text-cyan-900,.hover\:text-cyan-700:hover{color:#67E8F9!important} .text-cyan-600,.hover\:text-cyan-600:hover,.group:hover .group-hover\:text-cyan-600{color:#22D3EE!important}
+        .text-cyan-600\/70,.text-cyan-700\/70{color:#22D3EE!important;opacity:.75}
+        .bg-emerald-50{background-color:rgba(16,185,129,.10)!important} .bg-emerald-100{background-color:rgba(16,185,129,.16)!important} .bg-emerald-50\/50{background-color:rgba(16,185,129,.07)!important}
+        .hover\:bg-emerald-50:hover{background-color:rgba(16,185,129,.15)!important} .hover\:bg-emerald-100:hover{background-color:rgba(16,185,129,.22)!important}
+        .border-emerald-100{border-color:rgba(16,185,129,.2)!important} .border-emerald-200{border-color:rgba(16,185,129,.3)!important} .border-emerald-300{border-color:rgba(16,185,129,.42)!important}
+        .hover\:border-emerald-200:hover{border-color:rgba(16,185,129,.35)!important} .hover\:border-emerald-300:hover{border-color:rgba(16,185,129,.5)!important}
+        .text-emerald-700,.text-emerald-800,.text-emerald-900,.hover\:text-emerald-700:hover{color:#6EE7B7!important} .text-emerald-600,.hover\:text-emerald-600:hover,.group:hover .group-hover\:text-emerald-600{color:#34D399!important}
+        .text-emerald-600\/70,.text-emerald-700\/70{color:#34D399!important;opacity:.75}
+        .bg-green-50{background-color:rgba(34,197,94,.10)!important} .bg-green-100{background-color:rgba(34,197,94,.16)!important} .bg-green-50\/50{background-color:rgba(34,197,94,.07)!important}
+        .hover\:bg-green-50:hover{background-color:rgba(34,197,94,.15)!important} .hover\:bg-green-100:hover{background-color:rgba(34,197,94,.22)!important}
+        .border-green-100{border-color:rgba(34,197,94,.2)!important} .border-green-200{border-color:rgba(34,197,94,.3)!important} .border-green-300{border-color:rgba(34,197,94,.42)!important}
+        .hover\:border-green-200:hover{border-color:rgba(34,197,94,.35)!important} .hover\:border-green-300:hover{border-color:rgba(34,197,94,.5)!important}
+        .text-green-700,.text-green-800,.text-green-900,.hover\:text-green-700:hover{color:#86EFAC!important} .text-green-600,.hover\:text-green-600:hover,.group:hover .group-hover\:text-green-600{color:#4ADE80!important}
+        .text-green-600\/70,.text-green-700\/70{color:#4ADE80!important;opacity:.75}
+        .bg-orange-50{background-color:rgba(249,115,22,.10)!important} .bg-orange-100{background-color:rgba(249,115,22,.16)!important} .bg-orange-50\/50{background-color:rgba(249,115,22,.07)!important}
+        .hover\:bg-orange-50:hover{background-color:rgba(249,115,22,.15)!important} .hover\:bg-orange-100:hover{background-color:rgba(249,115,22,.22)!important}
+        .border-orange-100{border-color:rgba(249,115,22,.2)!important} .border-orange-200{border-color:rgba(249,115,22,.3)!important} .border-orange-300{border-color:rgba(249,115,22,.42)!important}
+        .hover\:border-orange-200:hover{border-color:rgba(249,115,22,.35)!important} .hover\:border-orange-300:hover{border-color:rgba(249,115,22,.5)!important}
+        .text-orange-700,.text-orange-800,.text-orange-900,.hover\:text-orange-700:hover{color:#FDBA74!important} .text-orange-600,.hover\:text-orange-600:hover,.group:hover .group-hover\:text-orange-600{color:#FB923C!important}
+        .text-orange-600\/70,.text-orange-700\/70{color:#FB923C!important;opacity:.75}
+        .bg-pink-50{background-color:rgba(236,72,153,.10)!important} .bg-pink-100{background-color:rgba(236,72,153,.16)!important} .bg-pink-50\/50{background-color:rgba(236,72,153,.07)!important}
+        .hover\:bg-pink-50:hover{background-color:rgba(236,72,153,.15)!important} .hover\:bg-pink-100:hover{background-color:rgba(236,72,153,.22)!important}
+        .border-pink-100{border-color:rgba(236,72,153,.2)!important} .border-pink-200{border-color:rgba(236,72,153,.3)!important} .border-pink-300{border-color:rgba(236,72,153,.42)!important}
+        .hover\:border-pink-200:hover{border-color:rgba(236,72,153,.35)!important} .hover\:border-pink-300:hover{border-color:rgba(236,72,153,.5)!important}
+        .text-pink-700,.text-pink-800,.text-pink-900,.hover\:text-pink-700:hover{color:#F9A8D4!important} .text-pink-600,.hover\:text-pink-600:hover,.group:hover .group-hover\:text-pink-600{color:#F472B6!important}
+        .text-pink-600\/70,.text-pink-700\/70{color:#F472B6!important;opacity:.75}
+        .bg-purple-50{background-color:rgba(168,85,247,.10)!important} .bg-purple-100{background-color:rgba(168,85,247,.16)!important} .bg-purple-50\/50{background-color:rgba(168,85,247,.07)!important}
+        .hover\:bg-purple-50:hover{background-color:rgba(168,85,247,.15)!important} .hover\:bg-purple-100:hover{background-color:rgba(168,85,247,.22)!important}
+        .border-purple-100{border-color:rgba(168,85,247,.2)!important} .border-purple-200{border-color:rgba(168,85,247,.3)!important} .border-purple-300{border-color:rgba(168,85,247,.42)!important}
+        .hover\:border-purple-200:hover{border-color:rgba(168,85,247,.35)!important} .hover\:border-purple-300:hover{border-color:rgba(168,85,247,.5)!important}
+        .text-purple-700,.text-purple-800,.text-purple-900,.hover\:text-purple-700:hover{color:#D8B4FE!important} .text-purple-600,.hover\:text-purple-600:hover,.group:hover .group-hover\:text-purple-600{color:#C084FC!important}
+        .text-purple-600\/70,.text-purple-700\/70{color:#C084FC!important;opacity:.75}
+        .bg-red-50{background-color:rgba(239,68,68,.10)!important} .bg-red-100{background-color:rgba(239,68,68,.16)!important} .bg-red-50\/50{background-color:rgba(239,68,68,.07)!important}
+        .hover\:bg-red-50:hover{background-color:rgba(239,68,68,.15)!important} .hover\:bg-red-100:hover{background-color:rgba(239,68,68,.22)!important}
+        .border-red-100{border-color:rgba(239,68,68,.2)!important} .border-red-200{border-color:rgba(239,68,68,.3)!important} .border-red-300{border-color:rgba(239,68,68,.42)!important}
+        .hover\:border-red-200:hover{border-color:rgba(239,68,68,.35)!important} .hover\:border-red-300:hover{border-color:rgba(239,68,68,.5)!important}
+        .text-red-700,.text-red-800,.text-red-900,.hover\:text-red-700:hover{color:#FCA5A5!important} .text-red-600,.hover\:text-red-600:hover,.group:hover .group-hover\:text-red-600{color:#F87171!important}
+        .text-red-600\/70,.text-red-700\/70{color:#F87171!important;opacity:.75}
+        .bg-rose-50{background-color:rgba(244,63,94,.10)!important} .bg-rose-100{background-color:rgba(244,63,94,.16)!important} .bg-rose-50\/50{background-color:rgba(244,63,94,.07)!important}
+        .hover\:bg-rose-50:hover{background-color:rgba(244,63,94,.15)!important} .hover\:bg-rose-100:hover{background-color:rgba(244,63,94,.22)!important}
+        .border-rose-100{border-color:rgba(244,63,94,.2)!important} .border-rose-200{border-color:rgba(244,63,94,.3)!important} .border-rose-300{border-color:rgba(244,63,94,.42)!important}
+        .hover\:border-rose-200:hover{border-color:rgba(244,63,94,.35)!important} .hover\:border-rose-300:hover{border-color:rgba(244,63,94,.5)!important}
+        .text-rose-700,.text-rose-800,.text-rose-900,.hover\:text-rose-700:hover{color:#FDA4AF!important} .text-rose-600,.hover\:text-rose-600:hover,.group:hover .group-hover\:text-rose-600{color:#FB7185!important}
+        .text-rose-600\/70,.text-rose-700\/70{color:#FB7185!important;opacity:.75}
+        .bg-blue-500,.bg-blue-600,.bg-indigo-500,.bg-indigo-600,.bg-indigo-700{background:linear-gradient(135deg,#E9A963,#A8612B)!important;color:#1A110B!important}
+        .hover\:bg-indigo-700:hover{background:#C47A3E!important} .border-blue-400,.border-blue-500,.border-indigo-500,.hover\:border-blue-500:hover,.focus\:border-indigo-500:focus{border-color:#E5A15C!important}
+        .text-blue-500,.text-indigo-400,.text-indigo-500{color:#EBAE6E!important} .ring-indigo-500,.focus\:ring-\[var\(--c-beers-1\)\]:focus{--tw-ring-color:rgba(229,161,92,.6)!important}
+        .shadow-blue-200,.shadow-blue-500,.shadow-blue-500\/25,.shadow-blue-500\/30{--tw-shadow-color:rgba(200,120,50,.35)!important}
     </style>
 </head>
 <body>
@@ -495,7 +685,7 @@ const LinkModal = ({ barcode, data, onLink, onClose }) => {
   return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 z-50 flex flex-col animate-in bg-[var(--text-main)]/40 backdrop-blur-sm" }, " ", /* @__PURE__ */ React.createElement("div", { className: "bg-white p-4 rounded-b-2xl flex flex-col gap-3 shadow-lg" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center" }, /* @__PURE__ */ React.createElement("h2", { className: "text-lg font-extrabold text-[var(--text-main)]" }, "Unknown Code"), /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "text-[var(--text-soft)] font-semibold hover:text-[var(--text-main)] px-3 py-1.5 rounded-lg transition-colors" }, "Cancel")), /* @__PURE__ */ React.createElement("div", { className: "bg-[#F1F4F9] text-[var(--text-main)] p-3 rounded-xl text-center font-mono text-xl font-bold tracking-widest" }, barcode)), " ", /* @__PURE__ */ React.createElement("div", { className: "p-4 bg-white" }, /* @__PURE__ */ React.createElement("input", { type: "text", placeholder: "Search product to link...", className: "w-full search-industrial p-4 text-base", value: search, onChange: (e) => setSearch(e.target.value), autoFocus: true })), " ", /* @__PURE__ */ React.createElement("div", { className: "flex-1 overflow-y-auto p-4 space-y-4 bg-[var(--bg-body)]" }, filtered.map((cat) => /* @__PURE__ */ React.createElement("div", { key: cat.category }, /* @__PURE__ */ React.createElement("h3", { className: "text-[var(--text-main)] font-bold text-sm uppercase mb-2 tracking-wide" }, cat.category), cat.items.map((item) => /* @__PURE__ */ React.createElement("button", { key: item.id, onClick: () => onLink({ ...item, _category: cat.category }), className: "w-full text-left bg-white border border-[var(--border-soft)] rounded-xl p-4 mb-2 flex justify-between items-center hover:border-[var(--c-beers-1)] transition-colors shadow-sm group" }, /* @__PURE__ */ React.createElement("span", { className: "font-semibold text-[var(--text-main)]" }, item.name), /* @__PURE__ */ React.createElement("span", { className: "text-xs font-bold text-[var(--c-beers-2)]" }, "Link \u2192")))))), " ");
 };
 const ReviewModal = ({ onClose, data, onUpdate }) => {
-  const mainLocs = [{ id: "bar1", label: "BAR 1", bg: "bg-premium", text: "text-black", border: "border-white" }, { id: "bar2", label: "BAR 2", bg: "bg-beers", text: "text-black", border: "border-white" }, { id: "bodega", label: "STORAGE", bg: "bg-wells", text: "text-white", border: "border-white" }, { id: "barroluco", label: "BARROLUCO", bg: "bg-wines", text: "text-white", border: "border-white" }];
+  const mainLocs = [{ id: "bar1", label: "BAR 1", bg: "bg-premium", text: "text-black", border: "border-white" }, { id: "bar2", label: "BAR 2", bg: "bg-beers", text: "text-white", border: "border-white" }, { id: "bodega", label: "STORAGE", bg: "bg-wells", text: "text-white", border: "border-white" }, { id: "barroluco", label: "BARROLUCO", bg: "bg-wines", text: "text-white", border: "border-white" }];
   return /* @__PURE__ */ React.createElement("div", { className: "fixed inset-0 z-50 flex flex-col animate-in bg-[var(--bg-body)]" }, " ", /* @__PURE__ */ React.createElement("div", { className: "bg-white p-4 border-b border-[var(--border-soft)] flex justify-between items-center shrink-0 shadow-sm" }, /* @__PURE__ */ React.createElement("h2", { className: "text-xl font-extrabold text-[var(--text-main)]" }, "Count Review"), /* @__PURE__ */ React.createElement("button", { onClick: onClose, className: "bg-[#F1F4F9] text-[var(--text-main)] px-5 py-2 rounded-xl font-bold hover:bg-[#E7EBF2] transition-colors" }, "Close")), " ", /* @__PURE__ */ React.createElement("div", { className: "flex-1 overflow-y-auto p-4 space-y-6" }, " ", mainLocs.map((main) => {
     const subZones = ZONES_CONFIG[main.id] || [];
     const mainTotal = data.reduce((acc, cat) => acc + cat.items.reduce((iAcc, item) => iAcc + (parseFloat(item[main.id]) || 0), 0), 0);
@@ -878,7 +1068,7 @@ function App() {
     return { card: "cat-card-nonalc", icon: "cat-icon-nonalc", emoji: "\u{1F4E6}" };
   };
   if (!auth) return /* @__PURE__ */ React.createElement(LoginScreen, { onLogin: () => setAuth(true) });
-  return /* @__PURE__ */ React.createElement("div", { className: "pb-40 relative min-h-screen" }, /* @__PURE__ */ React.createElement("div", { className: "sticky-header-industrial" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center p-4" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { className: "text-2xl text-[var(--text-main)] font-extrabold leading-none" }, "Scanner Pro"), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2 mt-2" }, /* @__PURE__ */ React.createElement("div", { className: `w-2 h-2 rounded-full ${isOnline ? "bg-emerald-500" : "bg-rose-400"}` }), /* @__PURE__ */ React.createElement("span", { className: "text-xs text-[var(--text-soft)] font-semibold tracking-wide" }, isOnline ? "Online" : "Offline"))), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setShowCheck(true), className: "icon-btn-round text-[var(--text-main)]" }, /* @__PURE__ */ React.createElement(Icons.List, { className: "h-5 w-5" })), /* @__PURE__ */ React.createElement("button", { onClick: () => setShowMenu(!showMenu), className: "icon-btn-round text-[var(--text-main)]" }, /* @__PURE__ */ React.createElement(Icons.Settings, { className: "h-5 w-5" })))), /* @__PURE__ */ React.createElement("div", { className: "px-4 pt-3 pb-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setShowLoc(true), className: "w-full modal-industrial p-4 group active:scale-[0.99] transition-transform relative shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "zone-label mb-1 text-left" }, "Current Zone"), /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-[var(--text-main)] font-extrabold text-2xl leading-none" }, ZONES_CONFIG[loc] ? ((_a = ZONES_CONFIG[loc].find((z) => z.id === subZone)) == null ? void 0 : _a.label) || "Select zone" : loc === "purchases" ? "Purchases" : loc === "barroluco" ? "Barroluco" : "Main Area"), /* @__PURE__ */ React.createElement(Icons.ChevronDown, { className: "text-[var(--text-soft)] w-6 h-6" })))), /* @__PURE__ */ React.createElement("div", { className: "px-4 pb-4" }, /* @__PURE__ */ React.createElement("div", { className: "relative" }, /* @__PURE__ */ React.createElement("input", { type: "text", placeholder: "Search product...", className: "w-full search-industrial py-3 px-4 pr-11 text-base font-medium placeholder-[#A7B0C0] focus:outline-none focus:ring-2 focus:ring-[var(--c-beers-1)] transition-all", value: search, onChange: (e) => setSearch(e.target.value) }), /* @__PURE__ */ React.createElement(Icons.Search, { className: "absolute right-4 top-3.5 text-[var(--c-wells-2)] w-5 h-5 pointer-events-none" })))), showMenu && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "menu-backdrop", onClick: () => setShowMenu(false) }), /* @__PURE__ */ React.createElement("div", { className: "absolute top-24 right-4 bg-white border border-[var(--border-soft)] rounded-2xl p-2 z-50 flex flex-col gap-1 w-64 shadow-xl" }, /* @__PURE__ */ React.createElement("button", { onClick: () => {
+  return /* @__PURE__ */ React.createElement("div", { className: "pb-40 relative min-h-screen" }, /* @__PURE__ */ React.createElement("div", { className: "sticky-header-industrial" }, /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center p-4" }, /* @__PURE__ */ React.createElement("div", null, /* @__PURE__ */ React.createElement("h1", { className: "text-2xl text-[var(--text-main)] font-extrabold leading-none" }, "Scanner Pro"), /* @__PURE__ */ React.createElement("div", { className: "flex items-center gap-2 mt-2" }, /* @__PURE__ */ React.createElement("div", { className: `w-2 h-2 rounded-full ${isOnline ? "bg-emerald-500" : "bg-rose-400"}` }), /* @__PURE__ */ React.createElement("span", { className: "text-xs text-[var(--text-soft)] font-semibold tracking-wide" }, isOnline ? "Online" : "Offline"))), /* @__PURE__ */ React.createElement("div", { className: "flex gap-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setShowCheck(true), className: "icon-btn-round text-[var(--text-main)]" }, /* @__PURE__ */ React.createElement(Icons.List, { className: "h-5 w-5" })), /* @__PURE__ */ React.createElement("button", { onClick: () => setShowMenu(!showMenu), className: "icon-btn-round text-[var(--text-main)]" }, /* @__PURE__ */ React.createElement(Icons.Settings, { className: "h-5 w-5" })))), /* @__PURE__ */ React.createElement("div", { className: "px-4 pt-3 pb-2" }, /* @__PURE__ */ React.createElement("button", { onClick: () => setShowLoc(true), className: "w-full modal-industrial p-4 group active:scale-[0.99] transition-transform relative shadow-sm" }, /* @__PURE__ */ React.createElement("div", { className: "zone-label mb-1 text-left" }, "Current Zone"), /* @__PURE__ */ React.createElement("div", { className: "flex justify-between items-center" }, /* @__PURE__ */ React.createElement("div", { className: "text-[var(--text-main)] font-extrabold text-2xl leading-none" }, ZONES_CONFIG[loc] ? ((_a = ZONES_CONFIG[loc].find((z) => z.id === subZone)) == null ? void 0 : _a.label) || "Select zone" : loc === "purchases" ? "Purchases" : loc === "barroluco" ? "Barroluco" : "Main Area"), /* @__PURE__ */ React.createElement(Icons.ChevronDown, { className: "text-[var(--text-soft)] w-6 h-6" })))), /* @__PURE__ */ React.createElement("div", { className: "px-4 pb-4" }, /* @__PURE__ */ React.createElement("div", { className: "relative" }, /* @__PURE__ */ React.createElement("input", { type: "text", placeholder: "Search product...", className: "w-full search-industrial py-3 px-4 pr-11 text-base font-medium placeholder-[#A7B0C0] focus:outline-none focus:ring-2 focus:ring-[var(--c-beers-1)] transition-all", value: search, onChange: (e) => setSearch(e.target.value) }), /* @__PURE__ */ React.createElement(Icons.Search, { className: "absolute right-4 top-3.5 text-[var(--c-beers-2)] w-5 h-5 pointer-events-none" })))), showMenu && /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement("div", { className: "menu-backdrop", onClick: () => setShowMenu(false) }), /* @__PURE__ */ React.createElement("div", { className: "absolute top-24 right-4 bg-white border border-[var(--border-soft)] rounded-2xl p-2 z-50 flex flex-col gap-1 w-64 shadow-xl" }, /* @__PURE__ */ React.createElement("button", { onClick: () => {
     setShowPurchases(true);
     setShowMenu(false);
   }, className: "flex items-center gap-3 p-3 rounded-xl hover:bg-[#F1F4F9] text-[var(--text-main)] font-semibold transition-colors" }, /* @__PURE__ */ React.createElement(Icons.Package, { className: "text-[var(--c-wells-2)]", size: 18 }), " Inbound Log"), /* @__PURE__ */ React.createElement("button", { onClick: () => {
