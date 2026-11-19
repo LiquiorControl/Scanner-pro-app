@@ -278,9 +278,9 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-        import { getFirestore, doc, onSnapshot, setDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+        import { getFirestore, doc, onSnapshot, setDoc, getDoc, runTransaction } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
-        window.fb = { initializeApp, getFirestore, doc, onSnapshot, setDoc, getAuth, signInAnonymously, onAuthStateChanged };
+        window.fb = { initializeApp, getFirestore, doc, onSnapshot, setDoc, getDoc, runTransaction, getAuth, signInAnonymously, onAuthStateChanged };
     </script>
 
     <script type="module">
@@ -888,12 +888,24 @@ function App() {
           if (u) {
             setStatus("ONLINE");
             const path = typeof __app_id !== "undefined" ? `artifacts/${__app_id}/public/data/inventory` : "inventory";
-            window.fb.onSnapshot(window.fb.doc(db, path, "master"), (s) => {
+            const masterRef = window.fb.doc(db, path, "master");
+            window.fb.onSnapshot(masterRef, (s) => {
               if (s.exists()) setData(s.data().items);
+              setStatus("ONLINE");
             }, (err) => {
               console.warn(err);
               setStatus("OFFLINE");
             });
+            const refreshFromCloud = () => {
+              if (document.visibilityState !== "visible") return;
+              window.fb.getDoc(masterRef).then((s) => {
+                if (s.exists()) setData(s.data().items);
+              }).catch(() => {
+              });
+            };
+            document.addEventListener("visibilitychange", refreshFromCloud);
+            window.addEventListener("focus", refreshFromCloud);
+            window.addEventListener("online", refreshFromCloud);
           } else setStatus("OFFLINE");
         });
       } catch (e) {
@@ -946,7 +958,26 @@ function App() {
       try {
         const db = window.fb.getFirestore();
         const path = typeof __app_id !== "undefined" ? `artifacts/${__app_id}/public/data/inventory` : "inventory";
-        window.fb.setDoc(window.fb.doc(db, path, "master"), { items: newData }).catch(console.error);
+        const ref = window.fb.doc(db, path, "master");
+        const patchItem = (i) => {
+          const patched = typeof fieldOrObj === "object" ? __spreadProps(__spreadValues(__spreadValues({}, i), fieldOrObj), { last_updated: timestamp }) : __spreadProps(__spreadValues({}, i), { [fieldOrObj]: val, last_updated: timestamp });
+          const keys = typeof fieldOrObj === "object" ? Object.keys(fieldOrObj) : [fieldOrObj];
+          Object.keys(ZONES_CONFIG).forEach((locKey) => {
+            const zoneList = ZONES_CONFIG[locKey] || [];
+            if (zoneList.length > 0 && zoneList.some((z) => keys.includes(z.id))) {
+              patched[locKey] = Math.round(zoneList.reduce((sum, z) => sum + (parseFloat(patched[z.id]) || 0), 0) * 100) / 100;
+            }
+          });
+          return patched;
+        };
+        window.fb.runTransaction(db, async (tx) => {
+          const snap = await tx.get(ref);
+          const latest = snap.exists() && Array.isArray(snap.data().items) ? snap.data().items : newData;
+          const merged = latest.map((cat) => __spreadProps(__spreadValues({}, cat), { items: cat.items.map((i) => i.id === id ? patchItem(i) : i) }));
+          tx.set(ref, { items: merged }, { merge: true });
+        }).catch((err) => {
+          console.error(err);
+        });
       } catch (e) {
         console.warn(e);
       }
